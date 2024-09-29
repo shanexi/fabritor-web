@@ -11,7 +11,10 @@ import { Trans, useTranslation } from "../../../../i18n/utils";
 
 const i18nKeySuffix = 'header.export';
 
-const items: MenuProps['items'] = ['jpg', 'png', 'svg', 'json', 'divider', 'clipboard'].map(
+const items: MenuProps['items'] = 
+['json', 'clipboard']
+// ['jpg', 'png', 'svg', 'json', 'divider', 'clipboard']
+.map(
   item => item === 'divider' ? ({ type: 'divider' }) : ({ key: item, label: <Trans i18nKey={`${i18nKeySuffix}.${item}`} /> })
 )
 
@@ -60,18 +63,18 @@ export default function Export () {
     // @ts-ignore
     const name = sketch.fabritor_desc;
     switch (key) {
-      case 'png':
-        const png = editor.export2Img({ format: 'png' });
-        downloadFile(png, 'png', name);
-        break;
-      case 'jpg':
-        const jpg = editor.export2Img({ format: 'jpeg' });
-        downloadFile(jpg, 'jpg', name);
-        break;
-      case 'svg':
-        const svg = editor.export2Svg();
-        downloadFile(svg, 'svg', name);
-        break;
+      // case 'png':
+      //   const png = editor.export2Img({ format: 'png' });
+      //   downloadFile(png, 'png', name);
+      //   break;
+      // case 'jpg':
+      //   const jpg = editor.export2Img({ format: 'jpeg' });
+      //   downloadFile(jpg, 'jpg', name);
+      //   break;
+      // case 'svg':
+      //   const svg = editor.export2Svg();
+      //   downloadFile(svg, 'svg', name);
+      //   break;
       case 'json':
         const json = editor.canvas2Json();
         downloadFile(`data:text/json;charset=utf-8,${encodeURIComponent(

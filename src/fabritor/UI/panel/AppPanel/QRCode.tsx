@@ -12,7 +12,7 @@ export default function QRCodePanel (props) {
   const { back } = props;
   const [form] = Form.useForm();
   const [form2] = Form.useForm();
-  const [QRCodeConfig, setQRCodeConfig] = useState({ value: 'fabritor' });
+  const [QRCodeConfig, setQRCodeConfig] = useState({ value: 'https://myshell.ai/' });
   const qrRef = useRef<HTMLDivElement>(null);
   const { editor } = useContext(GlobalStateContext);
   const { t } = useTranslation();
@@ -40,7 +40,7 @@ export default function QRCodePanel (props) {
 
   useEffect(() => {
     form.setFieldsValue({
-      value: 'fabritor',
+      value: 'https://myshell.ai/',
       size: 160
     });
     form2.setFieldsValue({

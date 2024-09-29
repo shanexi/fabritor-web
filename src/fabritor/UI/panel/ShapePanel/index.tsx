@@ -116,7 +116,7 @@ export default function ShapePanel () {
       <Title>
         <div style={{ position: 'relative' }}>
           <span>{t('panel.material.hand_drawn')}</span>
-          <Tag color='#f50' style={{ position: 'absolute', right: -48, top: -5, padding: '0 4px' }}>beta</Tag>
+          {/* <Tag color='#f50' style={{ position: 'absolute', right: -48, top: -5, padding: '0 4px' }}>beta</Tag> */}
         </div>
       </Title>
       <Flex gap={10} wrap="wrap" justify="space-around">
