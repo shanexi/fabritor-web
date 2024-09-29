@@ -28,12 +28,19 @@
   "devDependencies": {
     "@applint/spec": "^1.2.3",
     "@ice/app": "^3.3.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/fabric": "^5.3.5",
     "@types/fontfaceobserver": "^2.1.2",
     "@types/node": "^18.11.17",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "eslint": "^8.35.0",
+    "rollup": "^4.9.4",
+    "rollup-plugin-dts": "^6.1.0",
     "stylelint": "^15.2.0",
     "surge": "^0.23.1",
     "tsc-silent": "^1.2.2",
@@ -48,7 +55,8 @@
     "stylelint": "stylelint \"src/**/*.{css,scss,less}\" --cache",
     "stylelint:fix": "npm run stylelint -- --fix",
     "codemod": "jscodeshift --extensions=tsx --parser=tsx -t scripts/jscodeshift.js src && jscodeshift --extensions=ts --parser=ts -t scripts/jscodeshift.js src",
-    "tsc": "tsc-silent -p tsconfig-package.json --suppress 2345,2339,2551,2322,2694,7030@/src 2307@/src/fabritor/UI/panel/ShapePanel/rough-type-list.tsx"
+    "tsc": "tsc-silent -p tsconfig-package.json --suppress 2345,2339,2551,2322,2694,7030@/src 2307@/src/fabritor/UI/panel/ShapePanel/rough-type-list.tsx",
+    "pack": "rm -rf build-out && npm run tsc && cp -r src/assets build-out/src/ && rollup -c rollup.config.mjs"
   },
   "publishConfig": {
     "access": "public"

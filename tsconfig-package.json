@@ -5,7 +5,7 @@
     "module": "ES2022",
     "noEmit": false,
     "jsx": "react-jsx",
-    "outDir": "./tsc-out",
+    "outDir": "./build-out",
     "removeComments": true,
     "declaration": true,
     "skipLibCheck": true,
@@ -17,7 +17,7 @@
   "exclude": [
     "node_modules",
     "build",
-    "tsc-out",
+    "build-out",
     ".ice"
   ]
 }

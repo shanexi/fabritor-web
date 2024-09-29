@@ -1,3 +1,5 @@
+@import url(../font.css);
 @import url(./UI/header/Toolbar/index.css);
 @import url(./UI/panel/index.css);
 @import url(./UI/setter/ImageSetter/ImageFx/FilterGroup/index.css);
+@import url(../../node_modules/cropperjs/dist/cropper.css)

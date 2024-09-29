@@ -11,7 +11,7 @@ import { SKETCH_ID } from "../utils/constants";
 import ObjectRotateAngleTip from './components/ObjectRotateAngleTip';
 import rough from 'roughjs';
 
-import '../font.css';
+// import '../font.css';
 
 const { Content } = Layout;
 
