@@ -1,7 +1,7 @@
 import { Button, Drawer } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { useEffect } from 'react';
-import { SETTER_WIDTH } from '@/config';
+import { SETTER_WIDTH } from "../../../../config";
 
 export default function MoreConfigWrapper (props) {
   const { open, setOpen, title = '', children, ...rest } = props;

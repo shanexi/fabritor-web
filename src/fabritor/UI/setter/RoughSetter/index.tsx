@@ -2,8 +2,8 @@ import { useContext, useEffect } from 'react';
 import { fabric } from 'fabric';
 import { Form } from 'antd';
 import ColorSetter from '../ColorSetter/Solid';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

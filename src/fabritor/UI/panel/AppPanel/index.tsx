@@ -3,7 +3,7 @@ import { QrcodeOutlined, SmileOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import QRCodePanel from './QRCode';
 import EmojiPanel from './Emoji';
-import { Trans } from '@/i18n/utils';
+import { Trans } from "../../../../i18n/utils";
 
 const APP_LIST = [
   {

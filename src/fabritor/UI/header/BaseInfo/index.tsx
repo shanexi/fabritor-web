@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { Typography } from 'antd';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Text } = Typography;
 

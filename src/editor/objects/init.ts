@@ -1,6 +1,6 @@
 import { fabric } from 'fabric';
-import { OBJECT_DEFAULT_CONFIG } from '@/utils/constants';
-import { IMAGE_CLIPPATH_QUALITY } from '@/config';
+import { OBJECT_DEFAULT_CONFIG } from "../../utils/constants";
+import { IMAGE_CLIPPATH_QUALITY } from "../../config";
 
 export const initObjectPrototype = () => {
   if (IMAGE_CLIPPATH_QUALITY) {

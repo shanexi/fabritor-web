@@ -1,16 +1,16 @@
 import { Flex, Tag } from 'antd';
-import Title from '@/fabritor/components/Title';
+import Title from "../../../components/Title";
 import LineTypeList from './line-type-list';
 import ShapeTypeList from './shape-type-list';
 import RoughTypeList from './rough-type-list';
-import { drawArrowLine, drawLine, drawTriArrowLine } from '@/editor/objects/line';
-import createRect from '@/editor/objects/rect';
-import createShape from '@/editor/objects/shape';
+import { drawArrowLine, drawLine, drawTriArrowLine } from "../../../../editor/objects/line";
+import createRect from "../../../../editor/objects/rect";
+import createShape from "../../../../editor/objects/shape";
 import { useContext } from 'react';
-import { GlobalStateContext } from '@/context';
-import { createPathFromSvg } from '@/editor/objects/path';
-import Center from '@/fabritor/components/Center';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { createPathFromSvg } from "../../../../editor/objects/path";
+import Center from "../../../components/Center";
+import { useTranslation } from "../../../../i18n/utils";
 
 export default function ShapePanel () {
   const { editor, roughSvg } = useContext(GlobalStateContext);

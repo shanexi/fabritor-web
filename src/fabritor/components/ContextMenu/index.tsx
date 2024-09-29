@@ -1,10 +1,10 @@
 import { useImperativeHandle, forwardRef, useState, useContext } from 'react';
 import type { MenuProps } from 'antd';
 import { Dropdown, Flex } from 'antd';
-import { SKETCH_ID } from '@/utils/constants';
-import { copyObject, pasteObject, removeObject, groupSelection, ungroup, changeLayerLevel } from '@/utils/helper';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { SKETCH_ID } from "../../../utils/constants";
+import { copyObject, pasteObject, removeObject, groupSelection, ungroup, changeLayerLevel } from "../../../utils/helper";
+import { GlobalStateContext } from "../../../context";
+import { useTranslation } from "../../../i18n/utils";
 
 // ⌘ C
 const ContextMenuItem = (props) => {

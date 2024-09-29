@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams } from 'ice';
+import { Outlet, useSearchParams } from "../../.ice";
 import { useEffect, useState } from 'react';
 import { ConfigProvider } from 'antd';
 import * as dayjs from 'dayjs';

@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
 import { fabric } from 'fabric';
 import { Form } from 'antd';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 import ColorSetter from '../ColorSetter';
 import BorderSetter, { getObjectBorderType, getStrokeDashArray } from '../BorderSetter';
-import { transformColors2Fill, transformFill2Colors } from '@/utils';
-import { useTranslation } from '@/i18n/utils';
+import { transformColors2Fill, transformFill2Colors } from "../../../../utils";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

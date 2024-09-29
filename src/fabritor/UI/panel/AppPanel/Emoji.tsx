@@ -1,11 +1,11 @@
 import { fabric } from 'fabric';
-import { useSearchParams } from 'ice';
+import { useSearchParams } from "../../../../../.ice";
 import AppSubPanel from './AppSubPanel';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
-import { createTextbox } from '@/editor/objects/textbox';
+import { createTextbox } from "../../../../editor/objects/textbox";
 import { useContext, useEffect, useState } from 'react';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 
 export default function EmojiPanel (props) {
   const { back } = props;

@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { Modal } from 'antd';
-import { GlobalStateContext } from '@/context';
-import { DRAG_ICON } from '@/assets/icon';
+import { GlobalStateContext } from "../../../../context";
+import { DRAG_ICON } from "../../../../assets/icon";
 import { ClearOutlined, DragOutlined, ExclamationCircleFilled, UndoOutlined, RedoOutlined } from '@ant-design/icons';
-import { CenterV } from '@/fabritor/components/Center';
+import { CenterV } from "../../../components/Center";
 import ToolbarItem from './ToolbarItem';
-import ToolbarDivider from '@/fabritor/components/ToolbarDivider';
-import { Trans } from '@/i18n/utils';
+import ToolbarDivider from "../../../components/ToolbarDivider";
+import { Trans } from "../../../../i18n/utils";
 
 import './index.scss';
 

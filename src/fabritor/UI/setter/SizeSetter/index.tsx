@@ -1,6 +1,6 @@
 import { InputNumber, Flex } from 'antd';
 import { useEffect, useState } from 'react';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../i18n/utils";
 
 const SizeInput = (props) => {
   const { t } = useTranslation();

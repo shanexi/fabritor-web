@@ -1,6 +1,6 @@
 import { fabric } from 'fabric';
 import { useEffect, useContext } from 'react';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../../context";
 import { Form } from 'antd';
 import FilterGroup from './FilterGroup';
 

@@ -2,15 +2,15 @@ import { useContext, useEffect } from 'react';
 import { fabric } from 'fabric';
 import { Form } from 'antd';
 import ColorSetter from '../../ColorSetter';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../../context";
 import TextShadow from './TextShadow';
 import TextPath from './TextPath';
 import TextPattern from './TextPattern';
-import { drawTextPath, getPathOffset, removeTextPath } from '@/editor/objects/textbox';
-import { loadImageDom } from '@/editor/objects/image';
-import { transformColors2Fill, transformFill2Colors } from '@/utils';
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
-import { useTranslation } from '@/i18n/utils';
+import { drawTextPath, getPathOffset, removeTextPath } from "../../../../../editor/objects/textbox";
+import { loadImageDom } from "../../../../../editor/objects/image";
+import { transformColors2Fill, transformFill2Colors } from "../../../../../utils";
+import SliderInputNumber from "../../../../components/SliderInputNumber";
+import { useTranslation } from "../../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

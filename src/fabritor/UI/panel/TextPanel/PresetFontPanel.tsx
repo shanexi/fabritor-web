@@ -1,6 +1,6 @@
 import { Flex, Card } from 'antd';
-import Title from '@/fabritor/components/Title';
-import { Trans, useTranslation, translate } from '@/i18n/utils';
+import Title from "../../../components/Title";
+import { Trans, useTranslation, translate } from "../../../../i18n/utils";
 
 const PRESET_FONT_LIST = [
   {

@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { useSearchParams } from 'ice';
+import { useSearchParams } from "../../../../.ice";
 
 export default function LocalesSwitch () {
   const [searchParams] = useSearchParams();

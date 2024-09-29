@@ -1,7 +1,7 @@
-import { createFImage } from '@/editor/objects/image';
+import { createFImage } from "../../../../editor/objects/image";
 import { useContext } from 'react';
-import ImageSelector from '@/fabritor/components/ImageSelector';
-import { GlobalStateContext } from '@/context';
+import ImageSelector from "../../../components/ImageSelector";
+import { GlobalStateContext } from "../../../../context";
 
 export default function ImagePanel () {
   const { editor } = useContext(GlobalStateContext);

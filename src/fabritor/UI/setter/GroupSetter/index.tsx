@@ -1,8 +1,8 @@
 import { Button } from 'antd';
 import { useContext } from 'react';
-import { GlobalStateContext } from '@/context';
-import { groupSelection, ungroup } from '@/utils/helper';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { groupSelection, ungroup } from "../../../../utils/helper";
+import { useTranslation } from "../../../../i18n/utils";
 
 export default function GroupSetter () {
   const { object, editor } = useContext(GlobalStateContext);

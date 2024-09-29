@@ -6,11 +6,11 @@ import ImagePanel from './ImagePanel';
 import ShapePanel from './ShapePanel';
 import PaintPanel from './PaintPanel';
 import DesignPanel from './DesignPanel';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../context";
 import AppPanel from './AppPanel';
-import { PANEL_WIDTH } from '@/config';
-import { Trans } from '@/i18n/utils';
-import LocalesSwitch from '@/fabritor/components/LocalesSwitch';
+import { PANEL_WIDTH } from "../../../config";
+import { Trans } from "../../../i18n/utils";
+import LocalesSwitch from "../../components/LocalesSwitch";
 
 import './index.scss';
 

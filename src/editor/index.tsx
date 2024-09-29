@@ -1,19 +1,19 @@
 import { fabric } from 'fabric';
 import { message } from 'antd';
-import { calcCanvasZoomLevel, handleFLinePointsWhenMoving } from '@/utils/helper';
+import { calcCanvasZoomLevel, handleFLinePointsWhenMoving } from "../utils/helper";
 import initControl, { handleMouseOutCorner, handleMouseOverCorner } from './controller';
 import { initObjectPrototype } from './objects/init';
 import { throttle } from 'lodash-es';
-import { loadFont } from '@/utils';
+import { loadFont } from "../utils";
 import { initAligningGuidelines, initCenteringGuidelines } from './guide-lines';
 import initHotKey from './extensions/hotkey';
-import { SKETCH_ID, FABRITOR_CUSTOM_PROPS, SCHEMA_VERSION, SCHEMA_VERSION_KEY } from '@/utils/constants';
+import { SKETCH_ID, FABRITOR_CUSTOM_PROPS, SCHEMA_VERSION, SCHEMA_VERSION_KEY } from "../utils/constants";
 import FabricHistory from './extensions/history';
 import AutoSave from './extensions/autosave';
 import { createGroup } from './objects/group';
 import createCustomClass from './custom-objects';
-import { HOVER_OBJECT_CORNER, HOVER_OBJECT_CONTROL, CAPTURE_SUBTARGET_WHEN_DBLCLICK, LOAD_JSON_IGNORE_LOAD_FONT } from '@/config';
-import { translate } from '@/i18n/utils';
+import { HOVER_OBJECT_CORNER, HOVER_OBJECT_CONTROL, CAPTURE_SUBTARGET_WHEN_DBLCLICK, LOAD_JSON_IGNORE_LOAD_FONT } from "../config";
+import { translate } from "../i18n/utils";
 export default class Editor {
   public canvas: fabric.Canvas;
   private _options;

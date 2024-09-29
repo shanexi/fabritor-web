@@ -1,10 +1,10 @@
 import { Form } from 'antd';
 import SolidColorSetter from '../ColorSetter/Solid';
 import ColorSetter from '../ColorSetter';
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
+import SliderInputNumber from "../../../components/SliderInputNumber";
 import { useContext, useEffect } from 'react';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

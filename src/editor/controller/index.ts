@@ -1,8 +1,8 @@
 // cursor css https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor
 
 import { fabric } from 'fabric';
-import { ROTATE_SVG, ROTATE_SVG_ACTIVE, ROTATE_CURSOR, COPY_SVG, DEL_SVG, COPY_SVG_ACTIVE, DEL_SVG_ACTIVE } from '@/assets/icon';
-import { copyObject, pasteObject, removeObject } from '@/utils/helper';
+import { ROTATE_SVG, ROTATE_SVG_ACTIVE, ROTATE_CURSOR, COPY_SVG, DEL_SVG, COPY_SVG_ACTIVE, DEL_SVG_ACTIVE } from "../../assets/icon";
+import { copyObject, pasteObject, removeObject } from "../../utils/helper";
 import { initRectControl } from './rect';
 import { initLineControl } from './fline';
 import { initFTextControl } from './ftext';

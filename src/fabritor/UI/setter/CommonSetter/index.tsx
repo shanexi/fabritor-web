@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 import { LockOutlined, UnlockOutlined, CopyOutlined, DeleteOutlined, PicCenterOutlined, AlignLeftOutlined, AlignCenterOutlined, AlignRightOutlined, VerticalAlignTopOutlined, VerticalAlignMiddleOutlined, VerticalAlignBottomOutlined } from '@ant-design/icons';
-import { SKETCH_ID } from '@/utils/constants';
+import { SKETCH_ID } from "../../../../utils/constants";
 import OpacitySetter from './OpacitySetter';
 import ToolbarItem from '../../header/Toolbar/ToolbarItem';
-import { CenterV } from '@/fabritor/components/Center';
-import { copyObject, pasteObject, removeObject } from '@/utils/helper';
+import { CenterV } from "../../../components/Center";
+import { copyObject, pasteObject, removeObject } from "../../../../utils/helper";
 import FlipSetter from './FlipSetter';
 import { Divider } from 'antd';
 import PositionSetter from './PositionSetter';
-import { useTranslation, Trans } from '@/i18n/utils';
+import { useTranslation, Trans } from "../../../../i18n/utils";
 
 const ALIGH_TYPES = [
   {

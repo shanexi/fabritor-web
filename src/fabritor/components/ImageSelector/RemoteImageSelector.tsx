@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Input, Popover, Space } from 'antd';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../i18n/utils";
 
 export default function RemoteImageSelector (props) {
   const { onChange, ...rest } = props;

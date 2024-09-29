@@ -3,9 +3,9 @@ import { fabric } from 'fabric';
 import { Form } from 'antd';
 import ColorSetter from '../ColorSetter';
 import SizeSetter from '../SizeSetter';
-import { GlobalStateContext } from '@/context';
-import { transformColors2Fill, transformFill2Colors } from '@/utils';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { transformColors2Fill, transformFill2Colors } from "../../../../utils";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

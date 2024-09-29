@@ -1,4 +1,4 @@
-import { Trans }  from '@/i18n/utils';
+import { Trans }  from "../../../../i18n/utils";
 
 export default [
     {

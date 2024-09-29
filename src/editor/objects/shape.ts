@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-import { uuid } from '@/utils';
+import { uuid } from "../../utils";
 
 export default function createShape (ShapeClass, options) {
   const { points, canvas, ...rest } = options || {};

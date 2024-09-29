@@ -1,9 +1,9 @@
-import roughRectIcon from '@/assets/rough/rect.png';
-import roughLineIcon from '@/assets/rough/line.png';
-import roughCircleIcon from '@/assets/rough/circle.png';
-import roughEllipseIcon from '@/assets/rough/ellipse.png';
-import roughRightAngleIcon from '@/assets/rough/right-angle.png';
-import roughDiamondIcon from '@/assets/rough/diamond.png';
+import roughRectIcon from "../../../../assets/rough/rect.png";
+import roughLineIcon from "../../../../assets/rough/line.png";
+import roughCircleIcon from "../../../../assets/rough/circle.png";
+import roughEllipseIcon from "../../../../assets/rough/ellipse.png";
+import roughRightAngleIcon from "../../../../assets/rough/right-angle.png";
+import roughDiamondIcon from "../../../../assets/rough/diamond.png";
 
 const DEFAULT_ROUGH_CONFIG = {
   hachureGap: 16,

@@ -1,7 +1,7 @@
 import { Slider, Form } from 'antd';
 import ColorSetter from '../../ColorSetter/Solid';
 import { useEffect } from 'react';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

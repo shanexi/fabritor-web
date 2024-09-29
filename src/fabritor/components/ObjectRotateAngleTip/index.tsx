@@ -1,4 +1,4 @@
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../context";
 import { Tag } from 'antd';
 import { useState, useContext, useEffect } from 'react';
 

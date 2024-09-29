@@ -1,6 +1,6 @@
 import { Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
-import { Trans } from '@/i18n/utils';
+import { Trans } from "../../../../i18n/utils";
 
 const items: MenuProps['items'] = [
   {

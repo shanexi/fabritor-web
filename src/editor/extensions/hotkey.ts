@@ -1,5 +1,5 @@
 import hotkeys from 'hotkeys-js';
-import { copyObject, pasteObject, removeObject } from '@/utils/helper';
+import { copyObject, pasteObject, removeObject } from "../../utils/helper";
 
 export default function initHotKey (canvas, fhistory) {
   // @ts-ignore

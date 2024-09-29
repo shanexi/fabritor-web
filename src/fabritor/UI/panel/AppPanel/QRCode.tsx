@@ -1,10 +1,10 @@
 import { Button, Form, Input, InputNumber, QRCode, Radio, Collapse, Flex } from 'antd';
 import AppSubPanel from './AppSubPanel';
-import ColorSetter from '@/fabritor/UI/setter/ColorSetter/Solid';
+import ColorSetter from "../../setter/ColorSetter/Solid";
 import { useContext, useEffect, useRef, useState } from 'react';
-import { createImage } from '@/editor/objects/image';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { createImage } from "../../../../editor/objects/image";
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

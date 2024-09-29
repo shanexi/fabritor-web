@@ -1,9 +1,9 @@
 import { fabric } from 'fabric';
 import { FABRITOR_CUSTOM_PROPS } from './constants';
-import { createTextbox } from '@/editor/objects/textbox';
+import { createTextbox } from "../editor/objects/textbox";
 import { getSystemClipboard } from './index';
-import { createFImage } from '@/editor/objects/image';
-import { handleMouseOutCorner } from '@/editor/controller';
+import { createFImage } from "../editor/objects/image";
+import { handleMouseOutCorner } from "../editor/controller";
 
 // @ts-ignore fabric controlsUtils
 const controlsUtils = fabric.controlsUtils;
@@ -52,7 +52,7 @@ export const copyObject = async (canvas, target) => {
 export const pasteObject = async (canvas) => {
   // 先尝试读取系统剪贴板
   try {
-    const { type, result } = await getSystemClipboard() || {};
+    const { type, result } = (await getSystemClipboard()) || {};
     if (result) {
       if (type === 'text') {
         createTextbox({ text: result, canvas });

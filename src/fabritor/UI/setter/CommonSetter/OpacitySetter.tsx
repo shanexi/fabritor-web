@@ -1,4 +1,4 @@
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
+import SliderInputNumber from "../../../components/SliderInputNumber";
 import { Popover } from 'antd';
 
 export default function OpacitySetter (props) {

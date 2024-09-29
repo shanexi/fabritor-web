@@ -1,13 +1,13 @@
 import { Dropdown, Button, message } from 'antd';
 import { ExportOutlined, FileOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { downloadFile, base64ToBlob } from '@/utils';
+import { downloadFile, base64ToBlob } from "../../../../utils";
 import { useContext, useRef } from 'react';
-import { GlobalStateContext } from '@/context';
-import LocalFileSelector from '@/fabritor/components/LocalFileSelector';
-import { CenterV } from '@/fabritor/components/Center';
-import { SETTER_WIDTH } from '@/config';
-import { Trans, useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import LocalFileSelector from "../../../components/LocalFileSelector";
+import { CenterV } from "../../../components/Center";
+import { SETTER_WIDTH } from "../../../../config";
+import { Trans, useTranslation } from "../../../../i18n/utils";
 
 const i18nKeySuffix = 'header.export';
 

@@ -1,12 +1,12 @@
 import { Tooltip, Flex, Button } from 'antd';
-import Title from '@/fabritor/components/Title';
+import Title from "../../../components/Title";
 import { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
-import { DRAW_MODE_CURSOR, DRAG_ICON } from '@/assets/icon';
+import { DRAW_MODE_CURSOR, DRAG_ICON } from "../../../../assets/icon";
 import BrushList from './brush-list';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 import PathSetterForm from '../../setter/PathSetter/PathSetterForm';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../i18n/utils";
 
 export default function PaintPanel () {
   const [activeIndex, setActiveIndex] = useState(0);

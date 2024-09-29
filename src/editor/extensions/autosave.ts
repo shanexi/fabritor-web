@@ -1,6 +1,6 @@
 import fabric from 'fabric';
 import Editor from '../';
-import { LOAD_FROM_LOCAL_WHEN_INIT, AUTO_SAVE_WHEN_CHANGE } from '@/config';
+import { LOAD_FROM_LOCAL_WHEN_INIT, AUTO_SAVE_WHEN_CHANGE } from "../../config";
 
 export default class AutoSave {
   private canvas: fabric.Canvas;

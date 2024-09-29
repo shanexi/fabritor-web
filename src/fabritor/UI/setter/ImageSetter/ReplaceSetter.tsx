@@ -1,7 +1,7 @@
 import { Popover, Button } from 'antd';
 import { FileImageOutlined } from '@ant-design/icons';
-import ImageSelector from '@/fabritor/components/ImageSelector';
-import { useTranslation } from '@/i18n/utils';
+import ImageSelector from "../../../components/ImageSelector";
+import { useTranslation } from "../../../../i18n/utils";
 
 export default function ReplaceSetter (props) {
   const { t } = useTranslation();

@@ -4,10 +4,10 @@ import { Layout, Spin } from 'antd';
 import Header from './UI/header';
 import Panel from './UI/panel';
 import Setter from './UI/setter';
-import Editor from '@/editor';
-import { GlobalStateContext } from '@/context';
+import Editor from "../editor";
+import { GlobalStateContext } from "../context";
 import ContextMenu from './components/ContextMenu';
-import { SKETCH_ID } from '@/utils/constants';
+import { SKETCH_ID } from "../utils/constants";
 import ObjectRotateAngleTip from './components/ObjectRotateAngleTip';
 import rough from 'roughjs';
 

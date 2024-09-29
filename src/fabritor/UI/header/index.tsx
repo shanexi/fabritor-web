@@ -3,7 +3,7 @@ import Toolbar from './Toolbar';
 import Export from './Export';
 import Logo from './Logo';
 import BaseInfo from './BaseInfo';
-import { CenterV } from '@/fabritor/components/Center';
+import { CenterV } from "../../components/Center";
 
 const { Header} = Layout;
 

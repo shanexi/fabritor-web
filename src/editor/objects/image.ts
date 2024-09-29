@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-import { uuid } from '@/utils';
+import { uuid } from "../../utils";
 import { message } from 'antd';
 
 export const loadImageDom = async (url) => {

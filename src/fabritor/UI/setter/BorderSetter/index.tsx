@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { Radio, Form } from 'antd';
 import ColorSetter from '../ColorSetter/Solid';
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import SliderInputNumber from "../../../components/SliderInputNumber";
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

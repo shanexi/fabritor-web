@@ -1,9 +1,9 @@
 import { Button } from 'antd';
 import PresetFontPanel from './PresetFontPanel';
-import { createTextbox } from '@/editor/objects/textbox';
+import { createTextbox } from "../../../../editor/objects/textbox";
 import { useContext } from 'react';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 export default function TextPanel () {
   const { editor } = useContext(GlobalStateContext);

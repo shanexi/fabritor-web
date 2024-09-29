@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Button } from 'antd';
 import LocalFileSelector from '../LocalFileSelector';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../i18n/utils";
 
 export default function LocalImageSelector (props) {
   const { onChange, ...rest } = props;

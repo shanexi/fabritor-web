@@ -3,14 +3,14 @@ import { useContext, useEffect, useState } from 'react';
 import { Col, Form, Row } from 'antd';
 import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 import BorderSetter from './BorderSetter';
 import { getObjectBorderType, getStrokeDashArray } from '../BorderSetter'
 import ClipSetter from './Clip';
-import FList from '@/fabritor/components/FList';
+import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

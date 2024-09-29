@@ -1,18 +1,18 @@
 import { useContext } from 'react';
 import { Divider, Layout, Typography } from 'antd';
-import { GlobalStateContext } from '@/context';
-import { SKETCH_ID } from '@/utils/constants';
+import { GlobalStateContext } from "../../../context";
+import { SKETCH_ID } from "../../../utils/constants";
 import SketchSetter from './SketchSetter';
 import TextSetter from './TextSetter';
 import ImageSetter from './ImageSetter';
 import { LineSetter, ShapeSetter } from './ShapeSetter';
-import { CenterV } from '@/fabritor/components/Center';
+import { CenterV } from "../../components/Center";
 import CommonSetter from './CommonSetter';
 import GroupSetter from './GroupSetter';
 import PathSetter from './PathSetter';
 import RoughSetter from './RoughSetter';
-import { SETTER_WIDTH } from '@/config';
-import { useTranslation } from '@/i18n/utils';
+import { SETTER_WIDTH } from "../../../config";
+import { useTranslation } from "../../../i18n/utils";
 
 const { Sider } = Layout;
 const { Title } = Typography;

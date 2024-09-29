@@ -2,8 +2,8 @@ import Cropper from 'cropperjs';
 import { useRef, useState, useEffect } from 'react';
 import { Button, Space } from 'antd';
 import { CloseOutlined, CheckOutlined, ExpandOutlined } from '@ant-design/icons';
-import { PANEL_WIDTH } from '@/config';
-import { useTranslation } from '@/i18n/utils';
+import { PANEL_WIDTH } from "../../../../config";
+import { useTranslation } from "../../../../i18n/utils";
 
 import 'cropperjs/dist/cropper.css';
 

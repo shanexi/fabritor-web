@@ -1,8 +1,8 @@
 import { Button, Form, Row, Col, InputNumber, Switch } from 'antd';
 import { useContext, useEffect, useRef, useState } from 'react';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { GlobalStateContext } from "../../../../context";
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

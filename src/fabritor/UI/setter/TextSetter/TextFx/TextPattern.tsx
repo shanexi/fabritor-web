@@ -1,7 +1,7 @@
 import { Form, Switch, Row, Col } from 'antd';
 import { useEffect } from 'react';
-import ImageSelector from '@/fabritor/components/ImageSelector';
-import { useTranslation } from '@/i18n/utils';
+import ImageSelector from "../../../../components/ImageSelector";
+import { useTranslation } from "../../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

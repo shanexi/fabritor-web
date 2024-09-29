@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { Form, Radio, Switch } from 'antd';
-import { GlobalStateContext } from '@/context';
+import { GlobalStateContext } from "../../../../context";
 import ColorSetter from '../ColorSetter/Solid';
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
+import SliderInputNumber from "../../../components/SliderInputNumber";
 import { BORDER_TYPES, getObjectBorderType, getStrokeDashArray } from '../BorderSetter';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

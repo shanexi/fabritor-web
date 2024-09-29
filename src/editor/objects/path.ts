@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-import { uuid } from '@/utils';
+import { uuid } from "../../utils";
 
 export const loadSvgFromString = async (string) => {
   return new Promise((resolve) => {

@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Select } from 'antd';
-import { FONT_PRESET_FAMILY_LIST } from '@/utils/constants';
-import { GlobalStateContext } from '@/context';
+import { FONT_PRESET_FAMILY_LIST } from "../../../../utils/constants";
+import { GlobalStateContext } from "../../../../context";
 import FontStyleSetter from './FontStyleSetter';
 import AlignSetter from './AlignSetter';
 import ColorSetter from '../ColorSetter';
-import { loadFont, transformColors2Fill, transformFill2Colors } from '@/utils';
+import { loadFont, transformColors2Fill, transformFill2Colors } from "../../../../utils";
 import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
-import SliderInputNumber from '@/fabritor/components/SliderInputNumber';
-import FList from '@/fabritor/components/FList';
+import SliderInputNumber from "../../../components/SliderInputNumber";
+import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
-import { useTranslation } from '@/i18n/utils';
+import { useTranslation } from "../../../../i18n/utils";
 
 const { Item: FormItem } = Form;
 

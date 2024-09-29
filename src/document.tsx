@@ -1,7 +1,7 @@
 /**
  * The page's HTML template structure, using JSX.
  */
-import { Meta, Title, Links, Main, Scripts } from 'ice';
+import { Meta, Title, Links, Main, Scripts } from "../.ice";
 import { description } from '../package.json';
 
 export default function Document() {
