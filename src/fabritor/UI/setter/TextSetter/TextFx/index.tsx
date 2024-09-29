@@ -133,9 +133,9 @@ export default function TextFx () {
         <TextPath />
       </FormItem>
       
-      <FormItem name="pattern">
+      {/* <FormItem name="pattern">
         <TextPattern />
-      </FormItem>
+      </FormItem> */}
     </Form>
   )
 }
