@@ -52,9 +52,9 @@ export default function Export () {
           'image/png': blob
         })
       ]);
-      message.success(translate(`${i18nKeySuffix}.copy_success`));
+      message.success(t(`${i18nKeySuffix}.copy_success`));
     } catch(e) {
-      message.error(translate(`${i18nKeySuffix}.copy_fail`));
+      message.error(t(`${i18nKeySuffix}.copy_fail`));
     }
   }
 
