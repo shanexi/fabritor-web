@@ -19,12 +19,13 @@ const headerStyle: React.CSSProperties = {
 export default function () {
   return (
     <Header style={headerStyle}>
-      <Logo />
+      {/* <Logo /> */}
       <CenterV
         justify="space-between"
         style={{ flex: 1 }}
       >
-        <BaseInfo />
+        {/* <BaseInfo /> */}
+        <span />
         <Toolbar />
       </CenterV>
       <Export />
