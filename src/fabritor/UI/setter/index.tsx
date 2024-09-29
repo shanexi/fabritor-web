@@ -142,7 +142,7 @@ export default function Setter () {
     >
       {renderSetterTitle()}
       <div
-        style={{ padding: 16 }}
+        style={{ padding: 16, overflow: 'auto' }}
       >
         {renderSetter()}
         <CommonSetter />

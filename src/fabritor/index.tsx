@@ -146,7 +146,7 @@ export default function Fabritor () {
         roughSvg
       }}
     >
-      <Layout style={{ height: '100%' }} className="fabritor-layout">
+      <Layout style={{ height: '100%', overflow: 'hidden' }} className="fabritor-layout">
         <Spin spinning={!isReady} fullscreen />
         <ObjectRotateAngleTip />
         <Header />
