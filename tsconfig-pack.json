@@ -12,7 +12,7 @@
     "skipDefaultLibCheck": true
   },
   "files": [
-    "./src/fabritor/index.tsx"
+    "./src/index.ts"
   ],
   "exclude": [
     "node_modules",
