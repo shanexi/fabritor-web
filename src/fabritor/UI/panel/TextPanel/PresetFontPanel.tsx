@@ -66,7 +66,8 @@ export default function PresetFontPanel (props) {
             hoverable
             onClick={() => { handleClick(item) }}
             bodyStyle={{
-              padding: '12px 30px'
+              padding: '12px 30px',
+              userSelect: 'none'
             }}
           >
             {item.label}
