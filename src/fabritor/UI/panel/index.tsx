@@ -12,7 +12,7 @@ import { PANEL_WIDTH } from "../../../config";
 import { Trans } from "../../../i18n/utils";
 import LocalesSwitch from "../../components/LocalesSwitch";
 
-import './index.scss';
+// import './index.css';
 
 const { Sider } = Layout;
 

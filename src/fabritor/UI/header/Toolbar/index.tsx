@@ -8,7 +8,7 @@ import ToolbarItem from './ToolbarItem';
 import ToolbarDivider from "../../../components/ToolbarDivider";
 import { Trans } from "../../../../i18n/utils";
 
-import './index.scss';
+// import './index.css';
 
 const i18nKeySuffix = 'header.toolbar';
 

@@ -1,5 +1,5 @@
 import { Slider } from 'antd';
-import './index.scss';
+// import './index.css';
 
 const COLOR_FILTER_LIST = [
   {
