@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Select } from 'antd';
-import { FONT_PRESET_FAMILY_LIST } from "../../../../utils/constants";
+import { FONT_PRESET_FAMILY_LIST_GOOGLE_FONT } from "../../../../utils/constants";
 import { GlobalStateContext } from "../../../../context";
 import FontStyleSetter from './FontStyleSetter';
 import AlignSetter from './AlignSetter';
 import ColorSetter from '../ColorSetter';
-import { loadFont, transformColors2Fill, transformFill2Colors } from "../../../../utils";
+import { loadFont, loadPresetGoogleFonts, transformColors2Fill, transformFill2Colors } from "../../../../utils";
 import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
 import SliderInputNumber from "../../../components/SliderInputNumber";
 import FList from "../../../components/FList";
@@ -138,7 +138,12 @@ export default function TextSetter () {
           label={t('setter.text.font_family')}
         >
           <Select
-            options={FONT_PRESET_FAMILY_LIST}
+            options={FONT_PRESET_FAMILY_LIST_GOOGLE_FONT}
+            onDropdownVisibleChange={open => {
+              if (open) {
+                void loadPresetGoogleFonts();
+              }
+            }}
           />
         </FormItem>
         <FormItem

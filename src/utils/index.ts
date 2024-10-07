@@ -1,14 +1,32 @@
 import { fabric } from 'fabric';
 import * as FontFaceObserver from 'fontfaceobserver';
 import { v4 as uuidv4 } from 'uuid';
-import { FONT_PRESET_FAMILY_LIST, LOG_PREFIX } from './constants';
+import { COMPLETE_GOOGLE_FONTS, FONT_PRESET_FAMILY_LIST_GOOGLE_FONT, LOG_PREFIX } from './constants';
+import googleFonts from 'google-fonts';
+
+export const loadPresetGoogleFonts = async () => {
+  googleFonts.add(COMPLETE_GOOGLE_FONTS.reduce((acc, f) => {
+    acc[f] = true
+    return acc
+  }, {}))
+  const observers = [];
+  Object.keys(COMPLETE_GOOGLE_FONTS).forEach(function (family) {
+    const obs = new FontFaceObserver(family);
+    observers.push(obs.load(null, 1000 * 100));
+  });
+  Promise.all(observers).catch((e) => {
+    console.error(LOG_PREFIX, e);
+  });
+}
 
 export const loadFont = async (f: string) => {
   if (!f) return Promise.resolve();
-  const item = FONT_PRESET_FAMILY_LIST.find(_item => _item.value === f);
+  const item = FONT_PRESET_FAMILY_LIST_GOOGLE_FONT.find(_item => _item.value === f);
   if (!item) return Promise.resolve();
   const font = new FontFaceObserver(f);
-  return font.load(null, 1000 * 100).catch((e) => { console.error(LOG_PREFIX, e); });
+  return font.load(null, 1000 * 100).catch((e) => {
+    console.error(LOG_PREFIX, e);
+  });
 }
 
 export const uuid = () => {
