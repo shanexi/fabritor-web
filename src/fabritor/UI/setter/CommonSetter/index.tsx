@@ -118,6 +118,7 @@ export default function CommonSetter () {
     }
   }, [object]);
 
+  // @ts-expect-error TS2339
   if (!object || object.id === SKETCH_ID) return null;
 
   return (

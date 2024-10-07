@@ -38,6 +38,7 @@ export default function BaseInfo () {
         }
       }}
       ellipsis={{
+        // @ts-expect-error TS2353
         rows: 1
       }}
       style={{ margin: 0, width: 200 }}

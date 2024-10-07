@@ -100,6 +100,7 @@ export const removeObject = (target, canvas) => {
   if (!target) {
     target = canvas.getActiveObject();
   }
+  // @ts-expect-error TS7030
   if (!target) return;
   if (target.type === 'activeSelection') {
     target.getObjects().forEach((obj) => {

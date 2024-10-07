@@ -70,6 +70,7 @@ export default function PositionSetter () {
         handleSize(key, value);
         setFormData();
       } else {
+        // @ts-expect-error TS2345
         object.set(key, value);
       }
     });

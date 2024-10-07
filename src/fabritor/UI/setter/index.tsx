@@ -32,6 +32,7 @@ export default function Setter () {
 
   const getRenderSetter = () => {
     if (!isReady) return null;
+    // @ts-expect-error TS2339
     if (!object || object.id === SKETCH_ID) return <SketchSetter />;
     switch (objectType) {
       case 'textbox':
@@ -50,11 +51,13 @@ export default function Setter () {
       case 'f-image':
         return <ImageSetter />;
       case 'path':
+        // @ts-expect-error TS2339
         if (object?.sub_type === 'rough') {
           return <RoughSetter />
         }
         return <PathSetter />;
       case 'group':
+        // @ts-expect-error TS2339
         if (object?.sub_type === 'rough') {
           return <RoughSetter />
         }
@@ -81,6 +84,7 @@ export default function Setter () {
 
   const getSetterTitle = () => {
     if (!isReady) return null;
+    // @ts-expect-error TS2339
     if (!object || object.id === SKETCH_ID) return t('setter.sketch.title');
     switch (objectType) {
       case 'textbox':
@@ -101,7 +105,9 @@ export default function Setter () {
       case 'image':
         return t('panel.image.title');
       case 'path':
+        // @ts-expect-error TS2339
         if (object?.sub_type) {
+          // @ts-expect-error TS2339
           if (object?.sub_type === 'rough') {
             return t('panel.material.hand_drawn');
           }
@@ -109,6 +115,7 @@ export default function Setter () {
         }
         return t('panel.paint.title');
       case 'group':
+        // @ts-expect-error TS2339
         if (object?.sub_type === 'rough') {
           return t('panel.material.hand_drawn');
         }

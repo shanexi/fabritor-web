@@ -199,6 +199,7 @@ export const renderToolBarController = () => {
     offsetX: -24,
     offsetY: -26,
     cursorStyle: 'pointer',
+    // @ts-expect-error TS2322
     mouseUpHandler: handleCopyObject,
     render: renderSvgIcon(COPY_IMG)
   });

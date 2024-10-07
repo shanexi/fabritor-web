@@ -47,6 +47,7 @@ export const createFTextClass = () => {
     toObject: function(propertiesToInclude) {
       const allProperties = additionalProps.concat(propertiesToInclude);
       const obj = this.callSuper('toObject', allProperties);
+      // @ts-expect-error TS2339
       obj.styles = fabric.util.stylesToArray(this.styles, this.text);
       if (obj.path) {
         obj.path = this.path.toObject();
@@ -55,10 +56,12 @@ export const createFTextClass = () => {
     },
   });
 
+  // @ts-expect-error TS2551
   fabric.FText.fromObject = function(object, callback) {
     const objectCopy = clone(object), path = object.path;
     delete objectCopy.path;
     return fabric.Object._fromObject('FText', objectCopy, function(textInstance) {
+      // @ts-expect-error TS2339
       textInstance.styles = fabric.util.stylesFromArray(object.styles, object.text);
       if (path) {
         fabric.Object._fromObject('Path', path, function(pathInstance) {

@@ -33,6 +33,7 @@ export default function TextSetter () {
 
   const handleFontStyles = (styles) => {
     object.set({
+      // @ts-expect-error TS2353
       fontWeight: styles?.bold ? 'bold' : 'normal',
       fontStyle: styles?.italic ? 'italic' : 'normal',
       underline: !!styles.underline,
@@ -72,16 +73,21 @@ export default function TextSetter () {
         try {
           await loadFont(values[key]);
         } finally {
+          // @ts-expect-error TS2345
           object.set(key, values[key]);
         }
       } else if (key === 'fill') {
         handleFill(values[key]);
       } else {
+        // @ts-expect-error TS2339
         const selectedText = object.getSelectedText();
         if (selectedText && key === 'fill') {
+          // @ts-expect-error TS2339
           object.setSelectionStyles({ fill: values[key] });
         } else {
+          // @ts-expect-error TS2345
           object.set('styles', {});
+          // @ts-expect-error TS2345
           object.set(key, values[key]);
         }
       }
@@ -96,16 +102,25 @@ export default function TextSetter () {
 
   useEffect(() => {
     form.setFieldsValue({
+      // @ts-expect-error TS2339
       fontFamily: object.fontFamily,
+      // @ts-expect-error TS2339
       fontSize: object.fontSize,
       fill: transformFill2Colors(object.fill),
+      // @ts-expect-error TS2339
       textAlign: object.textAlign,
+      // @ts-expect-error TS2339
       lineHeight: object.lineHeight,
+      // @ts-expect-error TS2339
       charSpacing: object.charSpacing,
       fontStyles: {
+        // @ts-expect-error TS2339
         bold: object.fontWeight === 'bold',
+        // @ts-expect-error TS2339
         italic: object.fontStyle === 'italic',
+        // @ts-expect-error TS2339
         underline: object.underline,
+        // @ts-expect-error TS2339
         linethrough: object.linethrough
       }
     });

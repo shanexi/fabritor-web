@@ -27,6 +27,7 @@ export default function PaintPanel () {
     }
     if (options.shadow) {
       const shadow = editor.canvas.freeDrawingBrush.shadow;
+      // @ts-expect-error TS2339
       const originalShadowObject = shadow ? shadow.toObject() : {};
       const newShadowObject = {
         blur: options.shadow.width || originalShadowObject.blur,

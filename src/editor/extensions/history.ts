@@ -13,6 +13,7 @@ export default class FabricHistory {
   private saving: boolean; // if saving 2 history
   private doing: boolean;  // if doing undo or redo 
   private currentState: string;
+  // @ts-expect-error TS2694
   private canvas: fabric.Canvas;
   private editor: Editor;
 

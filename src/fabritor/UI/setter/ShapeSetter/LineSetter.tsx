@@ -25,6 +25,7 @@ export default function LineSetter () {
           editor.fireCustomModifiedEvent();
           break;
         case 'strokeWidth':
+          // @ts-expect-error TS2551
           object.setStrokeWidth(values[key]);
           break;
         case 'round':
@@ -48,6 +49,7 @@ export default function LineSetter () {
   useEffect(() => {
     form.setFieldsValue({
       stroke: object.stroke || '#000000',
+      // @ts-expect-error TS2345
       type: getObjectBorderType(object),
       strokeWidth: object.strokeWidth,
       round: object.strokeLineCap === 'round'

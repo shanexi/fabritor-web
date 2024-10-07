@@ -49,6 +49,7 @@ export default function ImageFx () {
       if (type === 'HueRotation') {
         filter.rotation = param == undefined ? 0 : param;
       }
+      // @ts-expect-error TS2339
       object.applyFilter(filter);
       object.canvas.requestRenderAll();
       editor.fireCustomModifiedEvent();
@@ -56,6 +57,7 @@ export default function ImageFx () {
   }
 
   const initImageFx = () => {
+    // @ts-expect-error TS2551
     const filter = object.getFilter();
     console.log(filter);
     form.setFieldsValue({

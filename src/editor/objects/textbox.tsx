@@ -56,6 +56,7 @@ export const createTextbox = async (options) => {
 
   let tmpPathInfo = { hasPath: false, offset: 100 };
 
+  // @ts-expect-error TS2551
   const textBox = new fabric.FText(text || translate('panel.text.add'), {
     ...TEXTBOX_DEFAULT_CONFIG,
     ...rest,

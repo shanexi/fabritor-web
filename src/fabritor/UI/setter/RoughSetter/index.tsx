@@ -30,6 +30,7 @@ export default function RoughSetter() {
   }
 
   useEffect(() => {
+    // @ts-expect-error TS2339
     if (object?.sub_type) {
       if (object.type === 'path') {
         form.setFieldsValue({

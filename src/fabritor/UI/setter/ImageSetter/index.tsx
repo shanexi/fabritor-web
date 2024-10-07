@@ -41,8 +41,10 @@ export default function ImageSetter () {
   const handleBorder = (border) => {
     const { type, stroke = '#000000', strokeWidth, borderRadius } = border || {};
     if (type === 'none') {
+      // @ts-expect-error TS2339
       object.setBorder({ stroke: null, borderRadius });
     } else {
+      // @ts-expect-error TS2339
       object.setBorder({
         stroke,
         strokeWidth,
@@ -70,6 +72,7 @@ export default function ImageSetter () {
 
   useEffect(() => {
     if (object) {
+      // @ts-expect-error TS2339
       const border = object.getBorder();
       form.setFieldsValue({
         border: {

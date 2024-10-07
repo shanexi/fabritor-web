@@ -83,18 +83,24 @@ export default function TextFx () {
     form.setFieldsValue({
       stroke: transformFill2Colors(object.stroke),
       strokeWidth: object.strokeWidth || 0,
+      // @ts-expect-error TS2551
       textBackgroundColor: object.textBackgroundColor,
       shadow: {
+        // @ts-expect-error TS2339
         color: object.shadow?.color || object.stroke || '#000000',
+        // @ts-expect-error TS2339
         blur: object.shadow?.blur || 0,
+        // @ts-expect-error TS2339
         offset: object.shadow?.offsetX || 0
       },
       path: {
+        // @ts-expect-error TS2339
         enable: !!object.path,
         offset: getPathOffset(object)
       },
       pattern: {
         enable: fill instanceof fabric.Pattern,
+        // @ts-expect-error TS2339
         url: fill?.source?.src
       }
     });

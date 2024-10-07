@@ -8,6 +8,7 @@ export const initFTextControl = () => {
   const objectControls = fabric.Object.prototype.controls;
 
   if (fabric.Rect) {
+    // @ts-expect-error TS2551
     const ftextControl: any = fabric.FText.prototype.controls = {};
     ftextControl.tr = objectControls.tr;
     ftextControl.br = objectControls.br;

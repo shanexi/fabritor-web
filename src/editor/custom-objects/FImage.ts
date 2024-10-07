@@ -38,7 +38,9 @@ export const createFImageClass = () => {
         fill: '#00000000',
         paintFirst: 'fill'
       };
+      // @ts-expect-error TS2339
       if (stroke) options.stroke = stroke;
+      // @ts-expect-error TS2339
       if (strokeWidth) options.strokeWidth = strokeWidth;
       return new fabric.Rect(options);
     },
@@ -120,10 +122,13 @@ export const createFImageClass = () => {
     }
   });
 
+  // @ts-expect-error TS2551
   fabric.FImage.fromObject = (object, callback) => {
     const { objects, ...options } = object;
     const imgJson = {...objects[0]};
+    // @ts-expect-error TS2339
     fabric.Image.fromObject(imgJson, (img) => {
+      // @ts-expect-error TS2551
       callback(new fabric.FImage({ image: img, ...options }, true));
     });
   }

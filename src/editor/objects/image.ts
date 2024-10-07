@@ -52,6 +52,7 @@ export const createImage = async (options) => {
     img = await loadImage(imageSource);
   } catch(e) { console.log(e); }
   
+  // @ts-expect-error TS7030
   if (!img) return;
 
   img.set({
@@ -78,6 +79,7 @@ export const createFImage = async (options) => {
   
   if (!img) return;
 
+  // @ts-expect-error TS2551
   const fimg = new fabric.FImage({
     image: img,
     id: uuid()

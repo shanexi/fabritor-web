@@ -3,6 +3,7 @@ import Editor from '../';
 import { LOAD_FROM_LOCAL_WHEN_INIT, AUTO_SAVE_WHEN_CHANGE } from "../../config";
 
 export default class AutoSave {
+  // @ts-expect-error TS2694
   private canvas: fabric.Canvas;
   private editor: Editor;
   private saving: boolean;

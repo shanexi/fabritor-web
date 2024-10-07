@@ -24,6 +24,7 @@ export default function PathSetter () {
     }
     if (values.shadow) {
       const shadow = object.shadow;
+      // @ts-expect-error TS2339
       const originalShadowObject = shadow ? shadow.toObject() : {};
       const newShadowObject = {
         blur: values.shadow.width || originalShadowObject.blur,
@@ -58,6 +59,7 @@ export default function PathSetter () {
 
   return (
     <PathSetterForm
+      // @ts-expect-error TS2339
       showFillConfig={object?.sub_type}
       shouldFireEvent
       value={value}

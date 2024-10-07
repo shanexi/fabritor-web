@@ -64,7 +64,9 @@ export const createFArrowClass = () => {
     },
   });
   
+  // @ts-expect-error TS2339
   fabric.FArrow.fromObject = function(object, callback) {
+    // @ts-expect-error TS2339
     callback && callback(new fabric.FArrow([object.x1, object.y1, object.x2, object.y2], object));
   };
 }
@@ -131,7 +133,9 @@ export const createFTriArrowClass = () => {
     },
   });
   
+  // @ts-expect-error TS2339
   fabric.FTriArrow.fromObject = function(object, callback) {
+    // @ts-expect-error TS2339
     callback && callback(new fabric.FTriArrow([object.x1, object.y1, object.x2, object.y2], object));
   };
 }
