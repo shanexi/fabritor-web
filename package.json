@@ -58,6 +58,7 @@
     "stylelint": "^15.2.0",
     "surge": "^0.23.1",
     "tsc-silent": "^1.2.2",
+    "tsc-watch": "^6.2.0",
     "typescript": "^4.9.5"
   },
   "scripts": {
@@ -72,6 +73,7 @@
     "tsc": "tsc-silent -p tsconfig-pack.json --suppress 2345,2339,2551,2322,2694,7030@/src 2307@/src/fabritor/UI/panel/ShapePanel/rough-type-list.tsx",
     "bundle": "rollup -c rollup.config.mjs",
     "pack": "rm -rf build-out && npm run tsc && cp src/index.css build-out/ && cp -r public build-out/ && cp -r src/assets build-out/ && cp -r src/assets build-out/src && cp .yalcignore build-out/ && node ./scripts/update-pack.js && npm run bundle",
+    "pack:watch": "tsc-watch -p tsconfig-pack.json --onSuccess \"rollup -c rollup.config.mjs\" --onFailure \"echo Beep! Compilation Failed\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
