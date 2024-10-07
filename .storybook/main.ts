@@ -15,6 +15,7 @@ const config: StorybookConfig = {
         name: "@storybook/react-webpack5",
         options: {},
     },
+    staticDirs: ['../public'],
     webpackFinal: async (config, { configType }) => {
         if (configType === 'DEVELOPMENT') {
             // Modify config for development
