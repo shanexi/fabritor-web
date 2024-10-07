@@ -5600,7 +5600,7 @@ iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-iconv-lite@0.6.3:
+iconv-lite@0.6.3, iconv-lite@^0.6.3:
   version "0.6.3"
   resolved "https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.6.3.tgz"
   integrity sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==
@@ -6241,6 +6241,11 @@ launch-editor@^2.6.0:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
 
+less-loader@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-12.2.0.tgz#e1e94522f6abe9e064ef396c29a3151bc6c1b6cc"
+  integrity sha512-MYUxjSQSBUQmowc0l5nPieOYwMzGPUaTzB6inNW/bdPEG9zOL3eAAD1Qw5ZxSPk7we5dMojHwNODYMV1hq4EVg==
+
 less@4.1.2:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/less/-/less-4.1.2.tgz"
@@ -6256,6 +6261,23 @@ less@4.1.2:
     make-dir "^2.1.0"
     mime "^1.4.1"
     needle "^2.5.2"
+    source-map "~0.6.0"
+
+less@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/less/-/less-4.2.0.tgz#cbefbfaa14a4cd388e2099b2b51f956e1465c450"
+  integrity sha512-P3b3HJDBtSzsXUl0im2L7gTO5Ubg8mEN6G8qoTS77iXxXX4Hvu4Qj540PZDvQ8V6DmX6iXo98k7Md0Cm1PrLaA==
+  dependencies:
+    copy-anything "^2.0.1"
+    parse-node-version "^1.0.1"
+    tslib "^2.3.0"
+  optionalDependencies:
+    errno "^0.1.1"
+    graceful-fs "^4.1.2"
+    image-size "~0.5.0"
+    make-dir "^2.1.0"
+    mime "^1.4.1"
+    needle "^3.1.0"
     source-map "~0.6.0"
 
 levn@^0.4.1:
@@ -6668,6 +6690,14 @@ needle@^2.5.2:
   dependencies:
     debug "^3.2.6"
     iconv-lite "^0.4.4"
+    sax "^1.2.4"
+
+needle@^3.1.0:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-3.3.1.tgz#63f75aec580c2e77e209f3f324e2cdf3d29bd049"
+  integrity sha512-6k0YULvhpw+RoLNiQCRKOl09Rv1dPLr8hHnVjHqdolKwDrdNyk+Hmrthi4lIGPPz3r39dLx0hsF5s40sZ3Us4Q==
+  dependencies:
+    iconv-lite "^0.6.3"
     sax "^1.2.4"
 
 negotiator@0.6.3:
