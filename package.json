@@ -71,7 +71,7 @@
     "codemod": "jscodeshift --extensions=tsx --parser=tsx -t scripts/jscodeshift.js src && jscodeshift --extensions=ts --parser=ts -t scripts/jscodeshift.js src",
     "tsc": "tsc-silent -p tsconfig-pack.json --suppress 2345,2339,2551,2322,2694,7030@/src 2307@/src/fabritor/UI/panel/ShapePanel/rough-type-list.tsx",
     "bundle": "rollup -c rollup.config.mjs",
-    "pack": "rm -rf build-out && npm run tsc && cp src/index.css build-out/src/ && cp -r src/assets build-out/src/ && npm run bundle",
+    "pack": "rm -rf build-out && npm run tsc && cp src/index.css build-out/ && cp -r public build-out/ && cp -r src/assets build-out/ && cp -r src/assets build-out/src && cp .yalcignore build-out/ && node ./scripts/update-pack.js && npm run bundle",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
