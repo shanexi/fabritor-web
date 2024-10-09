@@ -12,8 +12,8 @@ import { Trans, useTranslation } from "../../../../i18n/utils";
 const i18nKeySuffix = 'header.export';
 
 const items: MenuProps['items'] =
-  ['json', 'clipboard']
-    // ['jpg', 'png', 'svg', 'json', 'divider', 'clipboard']
+  // ['json', 'clipboard']
+  ['jpg', 'png', 'svg', 'json', 'divider', 'clipboard']
     .map(
       item => item === 'divider' ? ({ type: 'divider' }) : ({
         key: item,
