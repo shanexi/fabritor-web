@@ -100,7 +100,7 @@ export default function ExportModify() {
       justify="flex-end"
       gap={16}
       style={{
-        width: SETTER_WIDTH,
+        // width: SETTER_WIDTH,
         paddingRight: 16
       }}
     >
