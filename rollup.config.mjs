@@ -62,7 +62,7 @@ const config = [
             json(),
             image(),
             styles({
-                mode: ["extract", "react-colors-beauty.css"],
+                mode: ["extract", "assets/react-colors-beauty.css"],
             }),
             //   terser(),
             postbuild(),
