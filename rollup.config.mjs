@@ -26,7 +26,7 @@ const postbuild = () => {
 
 const config = [
     {
-        input: path.join(__dirname, './build-out/src/fabritor/index.d.ts'),
+        input: path.join(__dirname, './build-out/src/index.d.ts'),
         output: [
             {
                 file: path.join(__dirname, `./build-out/index.bundle.d.ts`),
@@ -40,7 +40,7 @@ const config = [
         // }
     },
     {
-        input: path.join(__dirname, './build-out/src/fabritor/index.js'),
+        input: path.join(__dirname, './build-out/src/index.js'),
         output: [
             {
                 inlineDynamicImports: true,

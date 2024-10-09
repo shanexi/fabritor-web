@@ -1,2 +1,2 @@
-export * from './fabritor/index';
-export * from './fabritor/image-canvas.model';
+export { Fabritor } from './fabritor/index';
+export { ImageCanvasModel } from './fabritor/image-canvas.model';

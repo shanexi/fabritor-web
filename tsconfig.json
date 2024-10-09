@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "module": "ESNext",
     "target": "ESNext",
-    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "lib": [
+      "DOM",
+      "ESNext",
+      "DOM.Iterable"
+    ],
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -16,10 +22,19 @@
     "strictNullChecks": false,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "ice": [".ice"]
+      "@/*": [
+        "./src/*"
+      ],
+      "ice": [
+        ".ice"
+      ]
     }
   },
-  "include": ["src", ".ice"],
-  "exclude": ["build"]
+  "include": [
+    "src",
+    ".ice"
+  ],
+  "exclude": [
+    "build"
+  ]
 }
