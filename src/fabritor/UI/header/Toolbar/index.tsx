@@ -7,6 +7,7 @@ import { CenterV } from "../../../components/Center";
 import ToolbarItem from './ToolbarItem';
 import ToolbarDivider from "../../../components/ToolbarDivider";
 import { Trans } from "../../../../i18n/utils";
+import ExportModify from "../../header/ExportModify";
 
 // import './index.css';
 
@@ -88,6 +89,8 @@ export default function Toolbar() {
       <ToolbarItem onClick={clearCanvas} title={<Trans i18nKey={`${i18nKeySuffix}.clear`}/>}>
         <ClearOutlined style={{ fontSize: 20 }}/>
       </ToolbarItem>
+      <ToolbarDivider/>
+      <ExportModify/>
     </CenterV>
   )
 }
