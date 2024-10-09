@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Select } from 'antd';
@@ -15,9 +13,7 @@ import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { Square3Stack3DIcon, } from '@heroicons/react/24/outline';
-import { css } from "@emotion/react";
-import { Flex } from 'react-system';
+import { RefSelectFormItem } from "../RefSelectFormItem";
 
 const { Item: FormItem } = Form;
 
@@ -143,16 +139,7 @@ export default function TextSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <FormItem
-          name="ref"
-          label={<Flex><Square3Stack3DIcon css={css`
-              width: 18px;
-              margin-right: 2px;
-          `}/>Ref</Flex>}
-        >
-          <Select options={[]}/>
-        </FormItem>
-
+        <RefSelectFormItem name="ref"/>
         <FormItem
           name="fontFamily"
           label={t('setter.text.font_family')}

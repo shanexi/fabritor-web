@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
 import { fabric } from 'fabric';
 import { useContext, useEffect, useState } from 'react';
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Form, Row } from 'antd';
 import { FunctionOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
@@ -12,9 +10,7 @@ import ClipSetter from './Clip';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { Flex } from "react-system";
-import { Square3Stack3DIcon, } from '@heroicons/react/24/outline';
-import { css } from "@emotion/react";
+import { RefSelectFormItem } from "../RefSelectFormItem";
 
 const { Item: FormItem } = Form;
 
@@ -109,18 +105,7 @@ export default function ImageSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <FormItem
-          name="ref"
-          label={<Flex><Square3Stack3DIcon css={css`
-              width: 18px;
-              margin-right: 2px;
-          `}/>Ref</Flex>}
-        >
-          <Select
-            options={[]}
-          />
-        </FormItem>
-
+        <RefSelectFormItem name="ref"/>
         <FormItem name="img">
           <ReplaceSetter/>
         </FormItem>
