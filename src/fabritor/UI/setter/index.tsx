@@ -13,6 +13,7 @@ import PathSetter from './PathSetter';
 import RoughSetter from './RoughSetter';
 import { SETTER_WIDTH } from "../../../config";
 import { useTranslation } from "../../../i18n/utils";
+import Toolbar from '../header/Toolbar';
 
 const { Sider } = Layout;
 const { Title } = Typography;
@@ -23,8 +24,11 @@ const siderStyle: React.CSSProperties = {
   borderLeft: '1px solid #e8e8e8'
 };
 
-export default function Setter () {
-  const { object, isReady } = useContext(GlobalStateContext);
+export default function Setter() {
+  const {
+    object,
+    isReady
+  } = useContext(GlobalStateContext);
   const { t } = useTranslation();
 
   const objectType = object?.get?.('type') || '';
@@ -33,37 +37,37 @@ export default function Setter () {
   const getRenderSetter = () => {
     if (!isReady) return null;
     // @ts-expect-error TS2339
-    if (!object || object.id === SKETCH_ID) return <SketchSetter />;
+    if (!object || object.id === SKETCH_ID) return <SketchSetter/>;
     switch (objectType) {
       case 'textbox':
       case 'f-text':
-        return <TextSetter />;
+        return <TextSetter/>;
       case 'rect':
       case 'circle':
       case 'triangle':
       case 'polygon':
-      case 'ellipse':  
-        return <ShapeSetter />;
+      case 'ellipse':
+        return <ShapeSetter/>;
       case 'f-line':
       case 'f-arrow':
       case 'f-tri-arrow':
-        return <LineSetter />;
+        return <LineSetter/>;
       case 'f-image':
-        return <ImageSetter />;
+        return <ImageSetter/>;
       case 'path':
         // @ts-expect-error TS2339
         if (object?.sub_type === 'rough') {
-          return <RoughSetter />
+          return <RoughSetter/>
         }
-        return <PathSetter />;
+        return <PathSetter/>;
       case 'group':
         // @ts-expect-error TS2339
         if (object?.sub_type === 'rough') {
-          return <RoughSetter />
+          return <RoughSetter/>
         }
-        return <GroupSetter />;
+        return <GroupSetter/>;
       case 'activeSelection':
-        return <GroupSetter />;
+        return <GroupSetter/>;
       default:
         return null;
     }
@@ -74,8 +78,8 @@ export default function Setter () {
     if (Setter) {
       return (
         <>
-        {Setter}
-        <Divider />
+          {Setter}
+          <Divider/>
         </>
       )
     }
@@ -94,7 +98,7 @@ export default function Setter () {
       case 'circle':
       case 'triangle':
       case 'polygon':
-      case 'ellipse':  
+      case 'ellipse':
         return t('panel.material.shape');
       case 'line':
       case 'f-line':
@@ -133,7 +137,10 @@ export default function Setter () {
       return null;
     }
     return (
-      <CenterV style={{ borderBottom: '1px solid #e8e8e8', paddingLeft: 16 }}>
+      <CenterV style={{
+        borderBottom: '1px solid #e8e8e8',
+        paddingLeft: 16
+      }}>
         <Title level={5}>
           {getSetterTitle()}
         </Title>
@@ -147,12 +154,16 @@ export default function Setter () {
       width={SETTER_WIDTH}
       className="fabritor-sider"
     >
+      <Toolbar/>
       {renderSetterTitle()}
       <div
-        style={{ padding: 16, overflow: 'auto' }}
+        style={{
+          padding: 16,
+          overflow: 'auto'
+        }}
       >
         {renderSetter()}
-        <CommonSetter />
+        <CommonSetter/>
       </div>
     </Sider>
   )
