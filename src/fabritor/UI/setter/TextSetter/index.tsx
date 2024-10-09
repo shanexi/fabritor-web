@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Select } from 'antd';
@@ -13,21 +15,29 @@ import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
+import { Square3Stack3DIcon, } from '@heroicons/react/24/outline';
+import { css } from "@emotion/react";
+import { Flex } from 'react-system';
 
 const { Item: FormItem } = Form;
 
-export default function TextSetter () {
-  const { object, editor }= useContext(GlobalStateContext);
+export default function TextSetter() {
+  const {
+    object,
+    editor
+  } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
   const { t } = useTranslation();
 
   const TEXT_ADVANCE_CONFIG = [
     {
-      icon: <FunctionOutlined style={{ fontSize: 22 }} />,
+      icon: <FunctionOutlined style={{ fontSize: 22 }}/>,
       label: t('setter.text.fx.title'),
       key: 'fx',
-      onClick: () => { setOpenFx(true) }
+      onClick: () => {
+        setOpenFx(true)
+      }
     }
   ]
 
@@ -43,7 +53,7 @@ export default function TextSetter () {
 
   const handleFill = (_fill) => {
     let fill = transformColors2Fill(_fill);
-    // text gradient nor support percentage https://github.com/fabricjs/fabric.js/issues/8168  
+    // text gradient nor support percentage https://github.com/fabricjs/fabric.js/issues/8168
     if (typeof fill !== 'string') {
       fill.gradientUnits = 'pixels';
       const { coords } = fill;
@@ -53,7 +63,7 @@ export default function TextSetter () {
         x2: coords.x2 === 1 ? object.width : 0,
         y2: coords.y2 === 1 ? object.height : 0,
         r1: 0,
-        r2: object.width > object.height ? object.width / 2  : object.height
+        r2: object.width > object.height ? object.width / 2 : object.height
       }
     }
     if (typeof fill !== 'string') {
@@ -96,7 +106,7 @@ export default function TextSetter () {
         editor.fireCustomModifiedEvent();
       }
     }
-   
+
     editor.canvas.requestRenderAll();
   }
 
@@ -134,6 +144,16 @@ export default function TextSetter () {
         colon={false}
       >
         <FormItem
+          name="ref"
+          label={<Flex><Square3Stack3DIcon css={css`
+              width: 18px;
+              margin-right: 2px;
+          `}/>Ref</Flex>}
+        >
+          <Select options={[]}/>
+        </FormItem>
+
+        <FormItem
           name="fontFamily"
           label={t('setter.text.font_family')}
         >
@@ -150,25 +170,27 @@ export default function TextSetter () {
           name="fontSize"
           label={t('setter.text.font_size')}
         >
-          <SliderInputNumber max={400} onChangeComplete={() =>{ editor.fireCustomModifiedEvent() }} />
+          <SliderInputNumber max={400} onChangeComplete={() => {
+            editor.fireCustomModifiedEvent()
+          }}/>
         </FormItem>
         <FormItem
           name="fill"
           label={t('setter.text.fill')}
         >
-          <ColorSetter type="fontColor" defaultColor="#000000" />
+          <ColorSetter type="fontColor" defaultColor="#000000"/>
         </FormItem>
         <FormItem
           name="textAlign"
           label={t('setter.text.text_align')}
         >
-          <AlignSetter />
+          <AlignSetter/>
         </FormItem>
         <FormItem
           name="fontStyles"
           label={t('setter.text.font_styles')}
         >
-          <FontStyleSetter />
+          <FontStyleSetter/>
         </FormItem>
         <FormItem
           name="charSpacing"
@@ -177,7 +199,9 @@ export default function TextSetter () {
           <SliderInputNumber
             min={-200}
             max={800}
-            onChangeComplete={() =>{ editor.fireCustomModifiedEvent() }}
+            onChangeComplete={() => {
+              editor.fireCustomModifiedEvent()
+            }}
           />
         </FormItem>
         <FormItem
@@ -188,19 +212,25 @@ export default function TextSetter () {
             min={0.5}
             max={2.5}
             step={0.01}
-            onChangeComplete={() =>{ editor.fireCustomModifiedEvent() }}
+            onChangeComplete={() => {
+              editor.fireCustomModifiedEvent()
+            }}
           />
         </FormItem>
       </Form>
-      <FList 
+      <FList
         dataSource={TEXT_ADVANCE_CONFIG}
         renderItemChildren={(item) => (
           <>
             {item.icon}
-            <span style={{ fontSize: 16, fontWeight: 'bold', margin: '0 6px 0 10px' }}>
+            <span style={{
+              fontSize: 16,
+              fontWeight: 'bold',
+              margin: '0 6px 0 10px'
+            }}>
               {item.label}
             </span>
-            <RightOutlined />
+            <RightOutlined/>
           </>
         )}
       />
@@ -209,7 +239,7 @@ export default function TextSetter () {
         setOpen={setOpenFx}
         title={`${t('panel.text.title')} ${t('setter.text.fx.title')}`}
       >
-        <TextFx />
+        <TextFx/>
       </MoreConfigWrapper>
     </>
   )

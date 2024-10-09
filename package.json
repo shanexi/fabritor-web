@@ -6,6 +6,9 @@
     "@ant-design/icons": "^5.2.6",
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@heroicons/react": "^2.1.5",
     "@ice/jsx-runtime": "^0.2.0",
     "@ice/runtime": "^1.2.7",
     "@swc/helpers": "^0.5.1",
@@ -29,6 +32,7 @@
     "react-colors-beauty": "1.0.3",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.1",
+    "react-system": "^0.20.3",
     "roughjs": "^4.6.6",
     "universal-env": "^3.3.3",
     "uuid": "^9.0.1"
