@@ -6,6 +6,7 @@ import * as path from 'path';
 import fs from 'fs-extra'
 import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
+import styles from "rollup-plugin-styles";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -45,18 +46,24 @@ const config = [
                 inlineDynamicImports: true,
                 file: path.join(__dirname, `./build-out/index.bundle.js`),
                 format: 'cjs',
-                interop: 'auto'
+                interop: 'auto',
+                // assetFileNames: "[name]-[hash][extname]",
+                assetFileNames: "[name][extname]",
             }
         ],
         external: [
             'react', 'react-is', 'react/jsx-runtime',
+            'universal-env',
             ...Object.keys(packageJson.dependencies),
             ...Object.keys(packageJson.devDependencies)
-        ],
+        ].filter(d => d !== 'react-colors-beauty'),
         plugins: [
             nodeResolve(),
             json(),
             image(),
+            styles({
+                mode: ["extract", "react-colors-beauty.css"],
+            }),
             //   terser(),
             postbuild(),
         ]
