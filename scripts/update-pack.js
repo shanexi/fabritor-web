@@ -31,6 +31,9 @@ try {
         "./index.css": {
             "default": "./index.css"
         },
+        "./package.json": {
+            "default": "./package.json"
+        },
         "./assets/react-colors-beauty.css": {
             "default": "./assets/react-colors-beauty.css"
         }
