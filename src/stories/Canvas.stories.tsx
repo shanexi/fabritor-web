@@ -6,6 +6,45 @@ import { Provider } from "inversify-react";
 import { ImageCanvasModel } from "../fabritor/image-canvas.model";
 import { ImageCanvas } from "../fabritor";
 
+/*
+      [
+        {
+          key: 'current',
+          type: 'group',
+          label: 'current',
+          children: [
+            {
+              key: 'Task',
+              label: 'Task',
+              children: [
+                {
+                  key: 'Workflow meme',
+                  label: 'Workflow meme',
+                  children: [
+                    {
+                      key: 'Text',
+                      label: 'Text'
+                    }
+                  ]
+                }
+              ]
+            },
+          ],
+        },
+        {
+          key: 'global',
+          type: 'group',
+          label: 'global',
+          children: [
+            {
+              key: 'Start Context',
+              label: 'Start Context',
+              children: []
+            },
+          ],
+        },
+    ];
+    */
 const container = new Container();
 container
   .bind<ImageCanvasModel>("ImageCanvasModel")

@@ -46,6 +46,14 @@ export class ImageCanvasModel {
   setVariables(variables: any[]) {
     this.variables = transformVariables(variables);
   }
+
+  getRefSelectDisplay(keyPath: string[]) {
+    if(keyPath.length === 0) return undefined;
+    const value = findLabelByValue(this.variables, keyPath[0]);
+    const keyPath2 = keyPath.slice(0)
+    keyPath2.splice(0, 1, value);
+    return keyPath2.reverse().join('/')
+  }
 }
 
 // todo: add Test
@@ -101,9 +109,26 @@ export class ImageCanvasModel {
 function transformVariables(source: any[]): MenuProps["items"] {
   return source.map((item) => ({
     label: item.label,
-    key: item.value || item.label,
+    key: item.children == null ? item.value : item.label,
     type: item.value == null ? "group" : undefined,
     children: item.children ? transformVariables(item.children) : undefined,
   }));
 }
 
+function findLabelByValue(
+  variables: any,
+  targetValue: string
+): string | undefined {
+  for (const item of variables) {
+    if (item.key === targetValue && !item.children) {
+      return item.label;
+    }
+    if (item.children) {
+      const foundLabel = findLabelByValue(item.children, targetValue);
+      if (foundLabel) {
+        return foundLabel;
+      }
+    }
+  }
+  return undefined;
+}

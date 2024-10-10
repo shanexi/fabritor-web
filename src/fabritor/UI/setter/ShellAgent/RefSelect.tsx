@@ -36,7 +36,7 @@ export function RefSelect(props: RefSelectProps) {
         // use Dropdown menus
               dropdownRender={(originNode) => null}
               dropdownStyle={{ display: 'none' }}
-              value={keyPath.length === 0 ? null : keyPath.join('/')}
+              value={model.getRefSelectDisplay(keyPath)}
               placeholder="Please select variable"
               onClear={() => props.onChange(undefined)}
               allowClear/>
