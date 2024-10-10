@@ -26,7 +26,7 @@ const postbuild = () => {
 
 const config = [
     {
-        input: path.join(__dirname, './build-out/src/index.d.ts'),
+        input: path.join(__dirname, './build-out/src/fabritor/index.d.ts'),
         output: [
             {
                 file: path.join(__dirname, `./build-out/index.bundle.d.ts`),
@@ -40,7 +40,7 @@ const config = [
         // }
     },
     {
-        input: path.join(__dirname, './build-out/src/index.js'),
+        input: path.join(__dirname, './build-out/src/fabritor/index.js'),
         output: [
             {
                 inlineDynamicImports: true,
@@ -64,6 +64,43 @@ const config = [
             styles({
                 mode: ["extract", "assets/react-colors-beauty.css"],
             }),
+            //   terser(),
+            postbuild(),
+        ]
+    },
+    {
+        input: path.join(__dirname, './build-out/src/fabritor/image-canvas.model.d.ts'),
+        output: [
+            {
+                file: path.join(__dirname, `./build-out/model.d.ts`),
+                format: 'es'
+            }
+        ],
+        plugins: [dts()],
+        // watch: {
+        //   chokidar: true,
+        //   clearScreen: false
+        // }
+    },
+    {
+        input: path.join(__dirname, './build-out/src/fabritor/image-canvas.model.js'),
+        output: [
+            {
+                inlineDynamicImports: true,
+                file: path.join(__dirname, `./build-out/model.js`),
+                format: 'cjs',
+                interop: 'auto',
+            }
+        ],
+        external: [
+            'react', 'react-is', 'react/jsx-runtime',
+            'universal-env',
+            ...Object.keys(packageJson.dependencies),
+            ...Object.keys(packageJson.devDependencies)
+        ].filter(d => d !== 'react-colors-beauty'),
+        plugins: [
+            nodeResolve(),
+            json(),
             //   terser(),
             postbuild(),
         ]

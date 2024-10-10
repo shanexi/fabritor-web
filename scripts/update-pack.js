@@ -17,8 +17,24 @@ try {
 
     packageJson.name = 'image-canvas';
     packageJson.version = '0.1.0';
-    packageJson.main = './index.bundle.js';
-    packageJson.types = './index.bundle.d.ts';
+    // packageJson.main = './index.bundle.js';
+    // packageJson.types = './index.bundle.d.ts';
+    packageJson.exports = {
+        ".": {
+            "types": "./index.bundle.d.ts",
+            "default": "./index.bundle.js"
+        },
+        "./model": {
+            "types": "./model.d.ts",
+            "default": "./model.js"
+        },
+        "./index.css": {
+            "default": "./index.css"
+        },
+        "./assets/react-colors-beauty.css": {
+            "default": "./assets/react-colors-beauty.css"
+        }
+    }
 
     const buildOutDir = path.join(__dirname, '..', 'build-out');
     if (!fs.existsSync(buildOutDir)) {
