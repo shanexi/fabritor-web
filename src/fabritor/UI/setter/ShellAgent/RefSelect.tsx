@@ -3,6 +3,7 @@ import React from "react";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { useInjection } from "inversify-react";
 import { ImageCanvasModel } from "../../../image-canvas.model";
+import { toJS } from "mobx";
 
 interface RefSelectProps {
   objId: string
@@ -16,7 +17,7 @@ export function RefSelect(props: RefSelectProps) {
   const keyPath = (typeof props.value === "string" && props.value.trim() !== '')
     ? props.value.split('/')
     : []
-  console.log(props)
+  const variables = toJS(model.variables)
   return (
     <Dropdown menu={
       {
@@ -24,12 +25,12 @@ export function RefSelect(props: RefSelectProps) {
           props.onChange(info.keyPath.join('/'))
         },
         selectedKeys: keyPath,
-        items: model.variables
+        items: variables
       }
     }
               placement="bottomRight"
               overlayStyle={{
-                zIndex: 100, // antd dropdown cascade bug, sub menu z-index = 100
+                // zIndex: 100, // antd dropdown cascade bug, sub menu z-index = 100
               }}>
       <Select options={[]}
         // use Dropdown menus

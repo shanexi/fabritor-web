@@ -32,7 +32,7 @@ export default function Setter() {
   const { t } = useTranslation();
 
   const objectType = object?.get?.('type') || '';
-  console.log('objectType', objectType, object);
+  // console.log('objectType', objectType, object);
 
   const getRenderSetter = () => {
     if (!isReady) return null;
