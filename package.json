@@ -26,6 +26,7 @@
     "inversify": "^6.0.2",
     "inversify-react": "^1.1.1",
     "lodash-es": "^4.17.21",
+    "mitt": "^3.0.1",
     "mobx": "^6.13.1",
     "mobx-react-lite": "^4.0.7",
     "rc-input": "~1.4.2",

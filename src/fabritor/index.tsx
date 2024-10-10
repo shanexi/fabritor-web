@@ -3,12 +3,14 @@ import { fabric } from 'fabric';
 import { Layout, Spin } from 'antd';
 import Panel from './UI/panel';
 import Setter from './UI/setter';
-import Editor from "../editor";
+import { Editor } from "../editor";
 import { GlobalStateContext } from "../context";
 import ContextMenu from './components/ContextMenu';
 import { SKETCH_ID } from "../utils/constants";
 import ObjectRotateAngleTip from './components/ObjectRotateAngleTip';
 import rough from 'roughjs';
+import { useInjection } from "inversify-react";
+import { type ImageCanvasModel } from "./image-canvas.model";
 
 // import '../font.css';
 
@@ -29,6 +31,7 @@ const contentStyle: React.CSSProperties = {
 }
 
 export function ImageCanvas() {
+  const model = useInjection<ImageCanvasModel>('ImageCanvasModel');
   const canvasEl = useRef<HTMLCanvasElement>(null);
   const workspaceEl = useRef<HTMLDivElement>(null);
   const roughSvgEl = useRef(null);
@@ -113,6 +116,8 @@ export function ImageCanvas() {
     await _editor.init();
 
     setEditor(_editor);
+    model.setEditor(_editor);
+
     setReady(true);
     setActiveObject(_editor.sketch);
   }
@@ -138,6 +143,15 @@ export function ImageCanvas() {
       }
     }
   }, []);
+
+  model.emitter.on('loadFromJSON', async (json) => {
+    setReady(false);
+    await editor.loadFromJSON(json, true);
+    editor.fhistory.reset();
+    setReady(true);
+    setActiveObject(null);
+    editor.fireCustomModifiedEvent();
+  })
 
   return (
     <GlobalStateContext.Provider

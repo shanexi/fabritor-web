@@ -14,7 +14,7 @@ import { createGroup } from './objects/group';
 import createCustomClass from './custom-objects';
 import { HOVER_OBJECT_CORNER, HOVER_OBJECT_CONTROL, CAPTURE_SUBTARGET_WHEN_DBLCLICK, LOAD_JSON_IGNORE_LOAD_FONT } from "../config";
 import { translate } from "../i18n/utils";
-export default class Editor {
+export class Editor {
   public canvas: fabric.Canvas;
   private _options;
   private _template;
@@ -91,7 +91,7 @@ export default class Editor {
       selectable: false,
       hasControls: false,
       hoverCursor: 'default',
-      // @ts-ignore custom id 
+      // @ts-ignore custom id
       id: SKETCH_ID,
       // @ts-ignore custom desc
       fabritor_desc: translate('header.fabritor_desc'),
@@ -141,7 +141,7 @@ export default class Editor {
     const viewportTransform = this.canvas.viewportTransform;
     // @ts-ignore 平移
     viewportTransform[4] = this.canvas.width / 2 - sketchCenter.x * viewportTransform[0];
-    // @ts-ignore 平移 
+    // @ts-ignore 平移
     viewportTransform[5] = this.canvas.height / 2 - sketchCenter.y * viewportTransform[3];
     // @ts-ignore
     this.canvas.setViewportTransform(viewportTransform);
