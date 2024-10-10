@@ -10,7 +10,7 @@ import ClipSetter from './Clip';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { RefSelectFormItem } from "../RefSelectFormItem";
+import { RefSelectFormItem } from "../ShellAgent/RefSelectFormItem";
 
 const { Item: FormItem } = Form;
 

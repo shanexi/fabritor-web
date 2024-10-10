@@ -13,7 +13,7 @@ import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { RefSelectFormItem } from "../RefSelectFormItem";
+import { RefSelectFormItem } from "../ShellAgent/RefSelectFormItem";
 
 const { Item: FormItem } = Form;
 
