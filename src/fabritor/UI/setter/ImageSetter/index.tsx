@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Form, Row } from 'antd';
 import { FunctionOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
@@ -10,7 +10,9 @@ import ClipSetter from './Clip';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { RefSelectFormItem } from "../ShellAgent/RefSelectFormItem";
+import { RefSelect } from "../ShellAgent/RefSelect";
+import { Flex } from "react-system";
+import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
 
 const { Item: FormItem } = Form;
 
@@ -93,7 +95,9 @@ export default function ImageSetter() {
           ...border,
           stroke: border.stroke || '#000000'
         },
-        opacity: object.opacity
+        opacity: object.opacity,
+        // @ts-expect-error TS2339
+        ref: object.ref,
       });
     }
   }, [object]);
@@ -105,7 +109,22 @@ export default function ImageSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <RefSelectFormItem name="ref"/>
+        <Form.Item
+          name="ref"
+          label={<Flex><Square3Stack3DIcon style={{
+            width: 18,
+            marginRight: 2
+          }}/>Ref</Flex>}
+        >
+          <RefSelect id='ref'
+                     objId={object['id']}
+                     value={form.getFieldValue('ref')}
+                     onChange={(val: string) => {
+                       form.setFieldValue('ref', val)
+                       // @ts-expect-error TS2345
+                       object.set('ref', val);
+                     }}/>
+        </Form.Item>
         <FormItem name="img">
           <ReplaceSetter/>
         </FormItem>

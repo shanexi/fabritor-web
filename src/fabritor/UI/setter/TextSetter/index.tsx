@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Select } from 'antd';
 import { FONT_PRESET_FAMILY_LIST_GOOGLE_FONT } from "../../../../utils/constants";
@@ -13,7 +13,9 @@ import FList from "../../../components/FList";
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { RefSelectFormItem } from "../ShellAgent/RefSelectFormItem";
+import { RefSelect } from "../ShellAgent/RefSelect";
+import { Flex } from "react-system";
+import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
 
 const { Item: FormItem } = Form;
 
@@ -109,6 +111,8 @@ export default function TextSetter() {
   useEffect(() => {
     form.setFieldsValue({
       // @ts-expect-error TS2339
+      ref: object.ref,
+      // @ts-expect-error TS2339
       fontFamily: object.fontFamily,
       // @ts-expect-error TS2339
       fontSize: object.fontSize,
@@ -131,7 +135,6 @@ export default function TextSetter() {
       }
     });
   }, [object]);
-
   return (
     <>
       <Form
@@ -139,7 +142,25 @@ export default function TextSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <RefSelectFormItem name="ref"/>
+        <Form.Item
+          name="ref"
+          label={<Flex><Square3Stack3DIcon style={{
+            width: 18,
+            marginRight: 2
+          }}/>Ref</Flex>}
+        >
+          <RefSelect id='ref'
+                     objId={object['id']}
+                     value={form.getFieldValue('ref')}
+                     onChange={(val: string) => {
+                       // Not familiar with ant design form
+                       // explicitly set id/value/onChange
+                       form.setFieldValue('ref', val)
+                       // need to call object.set here other than in handleValuesChange
+                       // @ts-expect-error TS2345
+                       object.set('ref', val);
+                     }}/>
+        </Form.Item>
         <FormItem
           name="fontFamily"
           label={t('setter.text.font_family')}

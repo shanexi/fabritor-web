@@ -114,7 +114,8 @@ export const FABRITOR_CUSTOM_PROPS = [
   'sub_type',
   'imageSource',
   'imageBorder',
-  'oldArrowInfo'
+  'oldArrowInfo',
+  'ref',
 ];
 
 export const COMPLETE_GOOGLE_FONTS = [
