@@ -1,52 +1,17 @@
 import { Flex } from "react-system";
 import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
-import { Dropdown, Form, type MenuProps, Select } from "antd";
+import { Dropdown, Form, Select } from "antd";
 import React from "react";
 import { MenuInfo } from "rc-menu/lib/interface";
-
-const items: MenuProps['items'] = [
-  {
-    key: 'current',
-    type: 'group',
-    label: 'current',
-    children: [
-      {
-        key: 'Task',
-        label: 'Task',
-        children: [
-          {
-            key: 'Image Canvas',
-            label: 'Image Canvas',
-            children: [
-              {
-                key: 'url',
-                label: 'url'
-              }
-            ]
-          }
-        ]
-      },
-    ],
-  },
-  {
-    key: 'global',
-    type: 'group',
-    label: 'global',
-    children: [
-      {
-        key: 'Start Context',
-        label: 'Start Context',
-        children: []
-      },
-    ],
-  },
-];
+import { useInjection } from "inversify-react";
+import { ImageCanvasModel } from "../../../image-canvas.model";
 
 export function RefSelectFormItem(props: {
   name: string;
   value: string;
   onChange: (value: string[], selectedOptions: unknown[]) => void;
 }) {
+  const model = useInjection(ImageCanvasModel)
   const [keyPath, setKeyPath] = React.useState<string[]>([]);
   return (
     <Form.Item
@@ -62,7 +27,7 @@ export function RefSelectFormItem(props: {
             setKeyPath(info.keyPath)
           },
           selectedKeys: keyPath,
-          items
+          items: model.variables
         }
       }
                 placement="bottomRight"
