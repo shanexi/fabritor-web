@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-import * as FontFaceObserver from 'fontfaceobserver';
+import FontFaceObserver from 'fontfaceobserver';
 import { v4 as uuidv4 } from 'uuid';
 import { COMPLETE_GOOGLE_FONTS, FONT_PRESET_FAMILY_LIST_GOOGLE_FONT, LOG_PREFIX } from './constants';
 import googleFonts from 'google-fonts';
