@@ -12,7 +12,7 @@ interface RefSelectProps {
 }
 
 export function RefSelect(props: RefSelectProps) {
-  const model = useInjection(ImageCanvasModel)
+  const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
   const keyPath = (typeof props.value === "string" && props.value.trim() !== '')
     ? props.value.split('/')
     : []

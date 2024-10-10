@@ -1,5 +1,5 @@
 import { definePageConfig } from "../../.ice";
-import Fabritor from "../fabritor";
+import { ImageCanvas } from "../fabritor";
 import '../index.css';
 
 export const pageConfig = definePageConfig(() => ({
@@ -7,5 +7,5 @@ export const pageConfig = definePageConfig(() => ({
 }));
 
 export default function () {
-  return <Fabritor />;
+  return <ImageCanvas/>;
 }

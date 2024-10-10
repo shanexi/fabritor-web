@@ -28,7 +28,7 @@ const contentStyle: React.CSSProperties = {
   height: '100%'
 }
 
-export function Fabritor() {
+export function ImageCanvas() {
   const canvasEl = useRef<HTMLCanvasElement>(null);
   const workspaceEl = useRef<HTMLDivElement>(null);
   const roughSvgEl = useRef(null);
@@ -174,5 +174,3 @@ export function Fabritor() {
     </GlobalStateContext.Provider>
   )
 }
-
-export default Fabritor;

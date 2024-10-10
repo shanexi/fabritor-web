@@ -4,10 +4,10 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Container, interfaces } from 'inversify';
 import { Provider } from 'inversify-react';
 import { ImageCanvasModel } from "../fabritor/image-canvas.model";
-import Fabritor from "../fabritor";
+import { ImageCanvas } from "../fabritor";
 
 const container = new Container();
-container.bind(ImageCanvasModel).toSelf().inSingletonScope();
+container.bind<ImageCanvasModel>('ImageCanvasModel').to(ImageCanvasModel).inSingletonScope();
 
 const withContainer =
   (container: interfaces.Container) => (Story: StoryFn) => (
@@ -18,12 +18,12 @@ const withContainer =
 
 const meta = {
   title: 'Canvas',
-  component: Fabritor,
+  component: ImageCanvas,
   decorators: [withContainer(container)],
   parameters: {
     layout: 'fullscreen',
   }
-} satisfies Meta<typeof Fabritor>;
+} satisfies Meta<typeof ImageCanvas>;
 
 export default meta;
 
