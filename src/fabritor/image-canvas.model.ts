@@ -85,7 +85,10 @@ export class ImageCanvasModel {
 
   getRefSelectDisplay(keyPath: string[]) {
     if (keyPath.length === 0) return undefined;
+    if (this.variables.length === 0) return undefined;
     const path = findPathByValue(this.variables, keyPath[0])
+    if (!Array.isArray(path) || path.length === 0) return undefined;
+
     path.shift(); // remove global or current
     return path.join('/')
   }
