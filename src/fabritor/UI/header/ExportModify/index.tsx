@@ -6,8 +6,9 @@ import { useContext, useRef } from 'react';
 import { GlobalStateContext } from "../../../../context";
 import LocalFileSelector from "../../../components/LocalFileSelector";
 import { CenterV } from "../../../components/Center";
-import { SETTER_WIDTH } from "../../../../config";
 import { Trans, useTranslation } from "../../../../i18n/utils";
+import { useInjection } from "inversify-react";
+import { type ImageCanvasModel } from "../../../image-canvas.model";
 
 const i18nKeySuffix = 'header.export';
 
@@ -22,6 +23,7 @@ const items: MenuProps['items'] =
     )
 
 export default function ExportModify() {
+  const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
   const {
     editor,
     setReady,
@@ -83,7 +85,8 @@ export default function ExportModify() {
         downloadFile(svg, 'svg', name);
         break;
       case 'json':
-        const json = editor.canvas2Json();
+        const rawJson = editor.canvas2Json();
+        const json = model.convertExportedJson(rawJson);
         downloadFile(`data:text/json;charset=utf-8,${encodeURIComponent(
           JSON.stringify(json, null, 2)
         )}`, 'json', name);

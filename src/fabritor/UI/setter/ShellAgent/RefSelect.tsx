@@ -14,12 +14,12 @@ interface RefSelectProps {
   onChange: (value: string) => void;
 }
 
-export const RefHelp = 'Will be replaced in runtime'
+export const RefHelp = 'Will be replaced in Chat'
 
 export function RefLabel() {
   return (
     <Tooltip
-      title="In edit status, the canvas show your uploaded image and edited text. If you click Run, these will be replaced with the referenced variables">
+      title="In edit status, the canvas show your uploaded image and edited text. If you click Run, these will be replaced with the referenced variables in Chat.">
       <Flex><Square3Stack3DIcon style={{
         width: 18,
         marginRight: 2
@@ -30,14 +30,7 @@ export function RefLabel() {
 
 export function RefSelect(props: RefSelectProps) {
   const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
-  let keyPath = []
-  if (props.value == null) {
-    keyPath = []
-  } else if (typeof props.value === 'string' && props.value.endsWith('[0]')) {
-    keyPath = [props.value.replace('[0]', '')]
-  } else {
-    keyPath = [keyPath]
-  }
+  const keyPath = model.specialProcessKeyPath(props.value)
   const variables = toJS(model.variables)
   return (
     <Dropdown menu={

@@ -56,35 +56,51 @@ container
 const model = container.get<ImageCanvasModel>("ImageCanvasModel");
 model.setVariables([
   {
-    label: "current",
-    children: [
+    "label": "current",
+    "children": [
       {
-        label: "Workflow Runner",
-        value: "{{}}",
-        children: [
+        "label": "Input",
+        "value": "{{}}",
+        "children": [
           {
-            label: "TitleText",
-            value: "{{__context__key_1234__}}",
+            "label": "hello",
+            "value": "{{key_1728547316233}}"
+          }
+        ]
+      },
+      {
+        "label": "Task",
+        "value": "{{}}",
+        "children": [
+          {
+            "label": "GPT",
+            "value": "{{key_1728607709930}}",
+            "children": [
+              {
+                "label": "reply",
+                "value": "{{key_1728607709930.reply}}"
+              }
+            ]
           }
         ]
       }
-    ],
+    ]
   },
   {
-    label: "global",
-    children: [
+    "label": "global",
+    "children": [
       {
-        label: "Start-Context",
-        value: "{{}}",
-        children: [
+        "label": "Start-Context",
+        "value": "{{}}",
+        "children": [
           {
-            label: "config",
-            value: "{{__context__key_1728467722718__}}",
-          },
-        ],
-      },
-    ],
-  },
+            "label": "config",
+            "value": "{{__context__key_1728467722718__}}"
+          }
+        ]
+      }
+    ]
+  }
 ]);
 
 const withContainer = (container: interfaces.Container) => (Story: StoryFn) =>

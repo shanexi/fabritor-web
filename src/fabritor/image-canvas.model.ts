@@ -37,20 +37,8 @@ export class ImageCanvasModel {
   async canvas2Json(): Promise<unknown> {
     await this.isEditorReadyPromise;
     const rawJson = this.editor.canvas2Json();
-    // backup original text, assign ref to text
-    rawJson.objects.forEach((object: any) => {
-      if (object.ref) {
-        if (object.type === 'image') {
-          object._src = object.src;
-          object.src = object.ref;
-        }
-        if (object.type === 'f-text') {
-          object._text = object.text;
-          object.text = object.ref
-        }
-      }
-    })
-    return rawJson;
+    const json = convertExportedJson(rawJson);
+    return json;
   }
 
   async loadFromJSON(json: any): Promise<void> {
@@ -60,9 +48,19 @@ export class ImageCanvasModel {
         object.ref = object.text;
         object.text = object._text
       }
-      if (object.type === 'image' && object._src) {
-        object.ref = object._src;
-        object.src = object.ref
+      if (object.type === 'f-image') {
+        object.objects.forEach(o => {
+          if (o.type === 'image') {
+            if (o._src) {
+              object.ref = o.src;  // Notice object.ref is not same level as o.src
+              o.src = o._src;
+            }
+            // fallback
+            if (o.src.indexOf('{{') > -1 && o.src.indexOf('}}') > -1) {
+              o.src = 'https://framerusercontent.com/images/S8LzTBsTv7aFWaPYWqvxt86vOHk.png'
+            }
+          }
+        })
       }
     })
     this.emitter.emit("loadFromJSON", json);
@@ -71,6 +69,18 @@ export class ImageCanvasModel {
   @action.bound
   setVariables(variables: any[]) {
     this.variables = transformVariables(variables);
+  }
+
+  specialProcessKeyPath(value: string): string[] {
+    let keyPath = []
+    if (value == null) {
+      keyPath = []
+    } else if (typeof value === 'string' && value.endsWith('[0]')) {
+      keyPath = [value.replace('[0]', '')]
+    } else {
+      keyPath = [value]
+    }
+    return keyPath
   }
 
   getRefSelectDisplay(keyPath: string[]) {
@@ -87,6 +97,10 @@ export class ImageCanvasModel {
       return keyPath[0] + '[0]'
     }
     return keyPath[0]
+  }
+
+  convertExportedJson(rawJson: any) {
+    return convertExportedJson(rawJson);
   }
 }
 
@@ -162,4 +176,27 @@ function findPathByValue(variables: any, targetValue: string) {
     }
   }
   return null;
+}
+
+// backup original text, assign ref to text
+export function convertExportedJson(rawJson: any) {
+  const json = JSON.parse(JSON.stringify(rawJson));
+  json.objects.forEach((object: any) => {
+    if (object.ref) { // Notice object.ref is not same level as o.src
+      if (object.type === 'f-image') {
+        object.objects.forEach(o => {
+          if (o.type === 'image') {
+            o._src = o.src;
+            o.src = object.ref; // Notice object.ref is not same level as o.src
+          }
+        })
+      }
+
+      if (object.type === 'f-text') {
+        object._text = object.text;
+        object.text = object.ref
+      }
+    }
+  })
+  return json
 }
