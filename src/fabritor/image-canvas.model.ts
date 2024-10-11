@@ -58,6 +58,7 @@ export class ImageCanvasModel {
             // fallback
             if (o.src.indexOf('{{') > -1 && o.src.indexOf('}}') > -1) {
               o.src = 'https://framerusercontent.com/images/S8LzTBsTv7aFWaPYWqvxt86vOHk.png'
+              o.crossOrigin = 'anonymous';
             }
           }
         })

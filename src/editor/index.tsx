@@ -402,6 +402,17 @@ export class Editor {
     if (typeof json === 'string') {
       try {
         json = JSON.parse(json);
+        json.objects.forEach((object) => {
+          if (object.type === 'f-image') {
+            object.objects.forEach(o => {
+              if (o.type === 'image') {
+                if (o.src.indexOf('https://') || o.src.indexOf('http://')) {
+                  o.crossOrigin = 'anonymous';
+                }
+              }
+            })
+          }
+        });
       } catch(e) {
         console.log(e)
         errorToast && message.error('加载本地模板失败，请重试');
