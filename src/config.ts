@@ -18,4 +18,4 @@ export const SETTER_WIDTH = 280;
 
 export const CAPTURE_SUBTARGET_WHEN_DBLCLICK = false;
 
-export const LOAD_JSON_IGNORE_LOAD_FONT = false;
+export const LOAD_JSON_IGNORE_LOAD_FONT = true;
