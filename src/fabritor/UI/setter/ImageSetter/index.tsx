@@ -10,9 +10,7 @@ import ClipSetter from './Clip';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
-import { RefSelect } from "../ShellAgent/RefSelect";
-import { Flex } from "react-system";
-import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
+import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
 
 const { Item: FormItem } = Form;
 
@@ -111,10 +109,8 @@ export default function ImageSetter() {
       >
         <Form.Item
           name="ref"
-          label={<Flex><Square3Stack3DIcon style={{
-            width: 18,
-            marginRight: 2
-          }}/>Ref</Flex>}
+          help={RefHelp}
+          label={<RefLabel/>}
         >
           <RefSelect id='ref'
                      objId={object['id']}

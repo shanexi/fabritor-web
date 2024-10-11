@@ -5,6 +5,9 @@ import { Container, interfaces } from "inversify";
 import { Provider } from "inversify-react";
 import { ImageCanvasModel } from "../fabritor/image-canvas.model";
 import { ImageCanvas } from "../fabritor";
+import { toJS } from "mobx";
+
+(window as any).toJS = toJS;
 
 /*
       [
@@ -54,7 +57,18 @@ const model = container.get<ImageCanvasModel>("ImageCanvasModel");
 model.setVariables([
   {
     label: "current",
-    children: [],
+    children: [
+      {
+        label: "Workflow Runner",
+        value: "{{}}",
+        children: [
+          {
+            label: "TitleText",
+            value: "{{__context__key_1234__}}",
+          }
+        ]
+      }
+    ],
   },
   {
     label: "global",
@@ -76,7 +90,7 @@ model.setVariables([
 const withContainer = (container: interfaces.Container) => (Story: StoryFn) =>
   (
     <Provider container={container}>
-      <Story />
+      <Story/>
     </Provider>
   );
 

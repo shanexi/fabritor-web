@@ -1,9 +1,11 @@
-import { Dropdown, Select } from "antd";
+import { Dropdown, Select, Tooltip } from "antd";
 import React from "react";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { useInjection } from "inversify-react";
 import { ImageCanvasModel } from "../../../image-canvas.model";
 import { toJS } from "mobx";
+import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
+import { Flex } from "react-system";
 
 interface RefSelectProps {
   objId: string
@@ -12,17 +14,31 @@ interface RefSelectProps {
   onChange: (value: string) => void;
 }
 
+export const RefHelp = 'Will be replaced in runtime'
+
+export function RefLabel() {
+  return (
+    <Tooltip
+      title="In edit status, the canvas show your uploaded image and edited text. If you click Run, these will be replaced with the referenced variables">
+      <Flex><Square3Stack3DIcon style={{
+        width: 18,
+        marginRight: 2
+      }}/>Ref</Flex>
+    </Tooltip>
+  )
+}
+
 export function RefSelect(props: RefSelectProps) {
   const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
   const keyPath = (typeof props.value === "string" && props.value.trim() !== '')
-    ? props.value.split('/')
+    ? props.value.split('.')
     : []
   const variables = toJS(model.variables)
   return (
     <Dropdown menu={
       {
         onClick: (info: MenuInfo) => {
-          props.onChange(info.keyPath.join('/'))
+          props.onChange(model.specialProcessWorkflowRunnerOutput(info.keyPath))
         },
         selectedKeys: keyPath,
         items: variables

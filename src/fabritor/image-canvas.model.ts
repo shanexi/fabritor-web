@@ -4,6 +4,8 @@ import { injectable, preDestroy } from "inversify";
 import { Editor } from "../editor";
 import mitt from "mitt";
 
+const WORKFLOW_RUNNER = 'Workflow Runner'
+
 @injectable()
 export class ImageCanvasModel {
   emitter = mitt<{
@@ -48,11 +50,19 @@ export class ImageCanvasModel {
   }
 
   getRefSelectDisplay(keyPath: string[]) {
-    if(keyPath.length === 0) return undefined;
-    const value = findLabelByValue(this.variables, keyPath[0]);
-    const keyPath2 = keyPath.slice(0)
-    keyPath2.splice(0, 1, value);
-    return keyPath2.reverse().join('/')
+    if (keyPath.length === 0) return undefined;
+    const path = findPathByValue(this.variables, keyPath[0])
+    path.shift(); // remove global or current
+    return path.join('/')
+  }
+
+  specialProcessWorkflowRunnerOutput(keyPath: string[]) {
+    keyPath = keyPath.slice(0)
+    // special process workflow runner output
+    if (keyPath[keyPath.length - 1] === WORKFLOW_RUNNER) {
+      return keyPath[0] + '.[0]'
+    }
+    return keyPath[0]
   }
 }
 
@@ -79,7 +89,7 @@ export class ImageCanvasModel {
         ]
     }
 ]
-    
+
 [
     {
         "label": "current",
@@ -115,20 +125,17 @@ function transformVariables(source: any[]): MenuProps["items"] {
   }));
 }
 
-function findLabelByValue(
-  variables: any,
-  targetValue: string
-): string | undefined {
+function findPathByValue(variables: any, targetValue: string) {
   for (const item of variables) {
-    if (item.key === targetValue && !item.children) {
-      return item.label;
+    if (item.key === targetValue) {
+      return [item.label];
     }
     if (item.children) {
-      const foundLabel = findLabelByValue(item.children, targetValue);
-      if (foundLabel) {
-        return foundLabel;
+      const foundPath = findPathByValue(item.children, targetValue);
+      if (foundPath) {
+        return [item.label, ...foundPath];
       }
     }
   }
-  return undefined;
+  return null;
 }
