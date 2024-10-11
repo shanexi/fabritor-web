@@ -1,7 +1,7 @@
 import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
 import { Col, Form, Row } from 'antd';
-import { FunctionOutlined } from '@ant-design/icons';
+import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
 import BorderSetter from './BorderSetter';
@@ -11,6 +11,7 @@ import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
+import FList from "../../../components/FList";
 
 const { Item: FormItem } = Form;
 
@@ -137,18 +138,22 @@ export default function ImageSetter() {
           </Col>
         </Row>
       </Form>
-      {/* <FList
-      dataSource={IMAGE_ADVANCE_CONFIG}
-      renderItemChildren={(item) => (
-        <>
-          {item.icon}
-          <span style={{ fontSize: 16, fontWeight: 'bold', margin: '0 6px 0 10px' }}>
+      <FList
+        dataSource={IMAGE_ADVANCE_CONFIG}
+        renderItemChildren={(item) => (
+          <>
+            {item.icon}
+            <span style={{
+              fontSize: 16,
+              fontWeight: 'bold',
+              margin: '0 6px 0 10px'
+            }}>
             {item.label}
           </span>
-          <RightOutlined />
-        </>
-      )}
-    /> */}
+            <RightOutlined/>
+          </>
+        )}
+      />
       <MoreConfigWrapper
         open={openFx}
         setOpen={setOpenFx}

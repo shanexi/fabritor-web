@@ -30,13 +30,13 @@ export function RefLabel() {
 
 export function RefSelect(props: RefSelectProps) {
   const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
-  const keyPath = model.specialProcessKeyPath(props.value)
+  const keyPath = model.convertValueFieldToRef(props.value)
   const variables = toJS(model.variables)
   return (
     <Dropdown menu={
       {
         onClick: (info: MenuInfo) => {
-          props.onChange(model.specialProcessWorkflowRunnerOutput(info.keyPath))
+          props.onChange(model.processWorkflowRunnerOutput(info.keyPath))
         },
         selectedKeys: keyPath,
         items: variables

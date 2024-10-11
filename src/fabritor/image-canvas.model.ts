@@ -71,7 +71,7 @@ export class ImageCanvasModel {
     this.variables = transformVariables(variables);
   }
 
-  specialProcessKeyPath(value: string): string[] {
+  convertValueFieldToRef(value: string): string[] {
     let keyPath = []
     if (value == null) {
       keyPath = []
@@ -90,7 +90,7 @@ export class ImageCanvasModel {
     return path.join('/')
   }
 
-  specialProcessWorkflowRunnerOutput(keyPath: string[]) {
+  processWorkflowRunnerOutput(keyPath: string[]) {
     keyPath = keyPath.slice(0)
     // special process workflow runner output
     if (keyPath[keyPath.length - 1] === WORKFLOW_RUNNER) {
@@ -98,62 +98,9 @@ export class ImageCanvasModel {
     }
     return keyPath[0]
   }
-
-  convertExportedJson(rawJson: any) {
-    return convertExportedJson(rawJson);
-  }
 }
 
 // todo: add Test
-/*
-[
-    {
-        "label": "current",
-        "children": []
-    },
-    {
-        "label": "global",
-        "children": [
-            {
-                "label": "Start-Context",
-                "value": "{{}}",
-                "children": [
-                    {
-                        "label": "config",
-                        "value": "{{__context__key_1728467722718__}}"
-                    }
-                ]
-            }
-        ]
-    }
-]
-
-[
-    {
-        "label": "current",
-        "key": "current",
-        "type": "group",
-        "children": []
-    },
-    {
-        "label": "global",
-        "key": "global",
-        "type": "group",
-        "children": [
-            {
-                "label": "Start-Context",
-                "key": "{{}}",
-                "children": [
-                    {
-                        "label": "config",
-                        "key": "{{__context__key_1728467722718__}}"
-                    }
-                ]
-            }
-        ]
-    }
-]
-*/
 function transformVariables(source: any[]): MenuProps["items"] {
   return source.map((item) => ({
     label: item.label,

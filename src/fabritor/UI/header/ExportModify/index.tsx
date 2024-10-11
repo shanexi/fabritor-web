@@ -85,8 +85,7 @@ export default function ExportModify() {
         downloadFile(svg, 'svg', name);
         break;
       case 'json':
-        const rawJson = editor.canvas2Json();
-        const json = model.convertExportedJson(rawJson);
+        const json = editor.canvas2Json();
         downloadFile(`data:text/json;charset=utf-8,${encodeURIComponent(
           JSON.stringify(json, null, 2)
         )}`, 'json', name);
