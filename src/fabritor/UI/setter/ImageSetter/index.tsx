@@ -125,7 +125,7 @@ export default function ImageSetter() {
         <FormItem name="img">
           <ReplaceSetter/>
         </FormItem>
-        <Row gutter={8}>
+        {/* <Row gutter={8}>
           <Col span={12}>
             <FormItem>
               <ClipSetter object={object}/>
@@ -136,7 +136,7 @@ export default function ImageSetter() {
               <BorderSetter/>
             </FormItem>
           </Col>
-        </Row>
+        </Row> */}
       </Form>
       <FList
         dataSource={IMAGE_ADVANCE_CONFIG}
