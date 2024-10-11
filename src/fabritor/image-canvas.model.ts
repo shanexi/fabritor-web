@@ -97,7 +97,7 @@ export class ImageCanvasModel {
   processWorkflowRunnerOutput(keyPath: string[]) {
     keyPath = keyPath.slice(0)
     // special process workflow runner output
-    if (keyPath[keyPath.length - 1] === WORKFLOW_RUNNER) {
+    if (keyPath.indexOf(WORKFLOW_RUNNER) > -1) {
       return keyPath[0] + '[0]'
     }
     return keyPath[0]

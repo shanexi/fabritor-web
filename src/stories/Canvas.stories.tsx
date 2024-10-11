@@ -59,26 +59,20 @@ model.setVariables([
     "label": "current",
     "children": [
       {
-        "label": "Input",
-        "value": "{{}}",
-        "children": [
-          {
-            "label": "hello",
-            "value": "{{key_1728547316233}}"
-          }
-        ]
-      },
-      {
         "label": "Task",
         "value": "{{}}",
         "children": [
           {
-            "label": "GPT",
-            "value": "{{key_1728607709930}}",
+            "label": "Workflow Runner",
+            "value": "{{key_1728623663961}}",
             "children": [
               {
-                "label": "reply",
-                "value": "{{key_1728607709930.reply}}"
+                "label": "MemeImage",
+                "value": "{{key_1728623663961.MemeImage}}"
+              },
+              {
+                "label": "TitleText",
+                "value": "{{key_1728623663961.TitleText}}"
               }
             ]
           }
@@ -88,18 +82,7 @@ model.setVariables([
   },
   {
     "label": "global",
-    "children": [
-      {
-        "label": "Start-Context",
-        "value": "{{}}",
-        "children": [
-          {
-            "label": "config",
-            "value": "{{__context__key_1728467722718__}}"
-          }
-        ]
-      }
-    ]
+    "children": []
   }
 ]);
 
