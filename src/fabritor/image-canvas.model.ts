@@ -76,7 +76,7 @@ export class ImageCanvasModel {
     let keyPath = []
     if (value == null) {
       keyPath = []
-    } else if (typeof value === 'string' && value.endsWith('[0]')) {
+    } else if (typeof value === 'string' && value.indexOf('[0]') > -1) {
       keyPath = [value.replace('[0]', '')]
     } else {
       keyPath = [value]
@@ -87,7 +87,7 @@ export class ImageCanvasModel {
   getRefSelectDisplay(keyPath: string[]) {
     if (keyPath.length === 0) return undefined;
     if (this.variables.length === 0) return undefined;
-    const path = findPathByValue(this.variables, keyPath[0])
+    const path = findPathByValue(this.variables, keyPath[0].replace('[0]', ''))
     if (!Array.isArray(path) || path.length === 0) return undefined;
 
     path.shift(); // remove global or current
@@ -98,7 +98,7 @@ export class ImageCanvasModel {
     keyPath = keyPath.slice(0)
     // special process workflow runner output
     if (keyPath.indexOf(WORKFLOW_RUNNER) > -1) {
-      return keyPath[0] + '[0]'
+      return keyPath[0].replace('}}', '[0]}}');
     }
     return keyPath[0]
   }
