@@ -40,8 +40,14 @@ export class ImageCanvasModel {
     // backup original text, assign ref to text
     rawJson.objects.forEach((object: any) => {
       if (object.ref) {
-        object._text = object.text;
-        object.text = object.ref
+        if (object.type === 'image') {
+          object._src = object.src;
+          object.src = object.ref;
+        }
+        if (object.type === 'f-text') {
+          object._text = object.text;
+          object.text = object.ref
+        }
       }
     })
     return rawJson;
@@ -50,9 +56,13 @@ export class ImageCanvasModel {
   async loadFromJSON(json: any): Promise<void> {
     await this.isEditorReadyPromise;
     json.objects.forEach((object: any) => {
-      if (object._text) {
+      if (object.type === 'f-text' && object._text) {
         object.ref = object.text;
         object.text = object._text
+      }
+      if (object.type === 'image' && object._src) {
+        object.ref = object._src;
+        object.src = object.ref
       }
     })
     this.emitter.emit("loadFromJSON", json);
