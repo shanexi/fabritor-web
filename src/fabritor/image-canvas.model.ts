@@ -36,11 +36,25 @@ export class ImageCanvasModel {
 
   async canvas2Json(): Promise<unknown> {
     await this.isEditorReadyPromise;
-    return this.editor.canvas2Json();
+    const rawJson = this.editor.canvas2Json();
+    // backup original text, assign ref to text
+    rawJson.objects.forEach((object: any) => {
+      if (object.ref) {
+        object._text = object.text;
+        object.text = object.ref
+      }
+    })
+    return rawJson;
   }
 
-  async loadFromJSON(json: unknown): Promise<void> {
+  async loadFromJSON(json: any): Promise<void> {
     await this.isEditorReadyPromise;
+    json.objects.forEach((object: any) => {
+      if (object._text) {
+        object.ref = object.text;
+        object.text = object._text
+      }
+    })
     this.emitter.emit("loadFromJSON", json);
   }
 
@@ -60,7 +74,7 @@ export class ImageCanvasModel {
     keyPath = keyPath.slice(0)
     // special process workflow runner output
     if (keyPath[keyPath.length - 1] === WORKFLOW_RUNNER) {
-      return keyPath[0] + '.[0]'
+      return keyPath[0] + '[0]'
     }
     return keyPath[0]
   }

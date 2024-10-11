@@ -30,9 +30,14 @@ export function RefLabel() {
 
 export function RefSelect(props: RefSelectProps) {
   const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
-  const keyPath = (typeof props.value === "string" && props.value.trim() !== '')
-    ? props.value.split('.')
-    : []
+  let keyPath = []
+  if (props.value == null) {
+    keyPath = []
+  } else if (typeof props.value === 'string' && props.value.endsWith('[0]')) {
+    keyPath = [props.value.replace('[0]', '')]
+  } else {
+    keyPath = [keyPath]
+  }
   const variables = toJS(model.variables)
   return (
     <Dropdown menu={
