@@ -22,10 +22,10 @@ export const loadPresetGoogleFonts = async () => {
 export const loadFont = async (f: string) => {
   if (!f) return Promise.resolve();
   const item = FONT_PRESET_FAMILY_LIST_GOOGLE_FONT.find(_item => _item.value === f);
+  if (!item) return Promise.resolve();
   googleFonts.add({
     [item.value]: true
   })
-  if (!item) return Promise.resolve();
   const font = new FontFaceObserver(f);
   return font.load(null, 1000 * 100).catch((e) => {
     console.error(LOG_PREFIX, e);

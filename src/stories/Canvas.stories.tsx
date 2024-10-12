@@ -64,15 +64,17 @@ model.setVariables([
         "children": [
           {
             "label": "Workflow Runner",
-            "value": "{{key_1728623663961}}",
+            "value": "{{key_1728644187539}}",
             "children": [
               {
                 "label": "MemeImage",
-                "value": "{{key_1728623663961.MemeImage}}"
+                "value": "{{key_1728644187539.MemeImage}}",
+                "field_type": "image"
               },
               {
                 "label": "TitleText",
-                "value": "{{key_1728623663961.TitleText}}"
+                "value": "{{key_1728644187539.TitleText}}",
+                "field_type": "text"
               }
             ]
           }
@@ -82,7 +84,34 @@ model.setVariables([
   },
   {
     "label": "global",
-    "children": []
+    "children": [
+      {
+        "label": "Start-Context",
+        "value": "{{}}",
+        "children": [
+          {
+            "label": "hello_text",
+            "value": "{{__context__key_1728614530516__}}",
+            "field_type": "string"
+          },
+          {
+            "label": "ref_image",
+            "value": "{{__context__key_1728614770720__}}",
+            "field_type": "string"
+          },
+          {
+            "label": "ref_image2",
+            "value": "{{__context__key_1728623179554__}}",
+            "field_type": "string"
+          },
+          {
+            "label": "Untitled",
+            "value": "{{__context__key_1728697902439__}}",
+            "field_type": "string"
+          }
+        ]
+      }
+    ]
   }
 ]);
 
