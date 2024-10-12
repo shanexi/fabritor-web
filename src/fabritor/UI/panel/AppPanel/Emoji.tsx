@@ -4,7 +4,8 @@ import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import { useContext, useEffect, useState } from 'react';
 import { GlobalStateContext } from "../../../../context";
-import { createImage } from "../../../../editor/objects/image";
+// import { createImage } from "../../../../editor/objects/image";
+import { createTextbox } from "../../../../editor/objects/textbox";
 
 export default function EmojiPanel(props) {
   const { back } = props;
@@ -20,28 +21,28 @@ export default function EmojiPanel(props) {
       object.set('text', `${object.text}${emoji.native}`);
       editor.canvas.requestRenderAll();
     } else {
-      const canvas = new fabric.Canvas('canvas');
-      const text = new fabric.Text(emoji.native, {
-        fontFamily: 'Arial',
-        fontSize: 100
-      });
-      canvas.add(text);
-      canvas.setWidth(100);
-      canvas.setHeight(100);
-      const img = new Image();
-      img.onload = () => {
-        createImage({
-          imageSource: img,
-          canvas: editor.canvas
-        });
-      }
-      img.src = canvas.toDataURL();
-      // await createTextbox({
-      //   text: emoji.native,
-      //   fontSize: 80,
-      //   width: 100,
-      //   canvas: editor.canvas
+      // const canvas = new fabric.Canvas('canvas');
+      // const text = new fabric.Text(emoji.native, {
+      //   fontFamily: 'Arial',
+      //   fontSize: 100
       // });
+      // canvas.add(text);
+      // canvas.setWidth(100);
+      // canvas.setHeight(100);
+      // const img = new Image();
+      // img.onload = () => {
+      //   createImage({
+      //     imageSource: img,
+      //     canvas: editor.canvas
+      //   });
+      // }
+      // img.src = canvas.toDataURL();
+      await createTextbox({
+        text: emoji.native,
+        fontSize: 80,
+        width: 100,
+        canvas: editor.canvas
+      });
     }
   }
 
