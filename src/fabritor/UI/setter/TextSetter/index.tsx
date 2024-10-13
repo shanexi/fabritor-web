@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import React, { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { Form, Input, Select } from 'antd';
@@ -16,7 +14,6 @@ import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
-import { css } from "@emotion/react";
 
 const { Item: FormItem } = Form;
 
@@ -172,10 +169,10 @@ export default function TextSetter() {
         </Form.Item>
         {
           hasRef ? <Form.Item
-              label={<span css={css`
-                  display: inline-block;
-                  width: 42px;
-              `}/>}
+              label={<span style={{
+                display: 'inline-block',
+                width: 42,
+              }}/>}
               name="text">
               <Input placeholder='ref placeholder' onChange={e => {
                 form.setFieldValue('text', e.target.value)

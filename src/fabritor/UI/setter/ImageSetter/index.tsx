@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
 import { Form } from 'antd';
@@ -12,7 +10,6 @@ import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
 import FList from "../../../components/FList";
-import { css } from "@emotion/react";
 
 const { Item: FormItem } = Form;
 
@@ -136,12 +133,12 @@ export default function ImageSetter() {
         </Form.Item>
         {
           hasRef ? <Form.Item
-              label={<span css={css`
-                  display: inline-block;
-                  width: 42px;
-              `}/>}
+              label={<span style={{
+                display: 'inline-block',
+                width: 42,
+              }}/>}
               name="img">
-              <ReplaceSetter title="Replace placeholder image" />
+              <ReplaceSetter title="Replace placeholder image"/>
             </Form.Item>
             : <FormItem name="img">
               <ReplaceSetter/>

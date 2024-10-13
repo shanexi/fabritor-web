@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { Dropdown, Select, Tooltip } from "antd";
 import React, { useRef } from "react";
 import { MenuInfo } from "rc-menu/lib/interface";
@@ -10,7 +8,6 @@ import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
 import { Flex } from "react-system";
 import { observer } from "mobx-react-lite";
 import { useClickAway } from "ahooks";
-import { css } from "@emotion/react";
 
 interface RefSelectProps {
   objId: string
@@ -62,13 +59,7 @@ export const RefSelect = observer((props: RefSelectProps) => {
         overlayStyle={{
           // zIndex: 100, // antd dropdown cascade bug, sub menu z-index = 100
         }}>
-        <div ref={ref} css={css`
-            .ant-select-selection-item {
-                direction: rtl;
-                padding-inline-start: 18px !important;
-                padding-inline-end: 0 !important;
-            }
-        `}>
+        <div ref={ref} className='x-ref-select'>
           <Select
             onClick={() => model.toggleRefSelect()}
             options={[]}

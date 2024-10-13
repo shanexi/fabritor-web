@@ -6,8 +6,6 @@
     "@ant-design/icons": "^5.2.6",
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.1.5",
     "@ice/jsx-runtime": "^0.2.0",
     "@ice/runtime": "^1.2.7",
