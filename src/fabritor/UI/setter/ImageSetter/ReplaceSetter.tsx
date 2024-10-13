@@ -1,14 +1,15 @@
-import { Popover, Button } from 'antd';
-import { FileImageOutlined } from '@ant-design/icons';
 import ImageSelector from "../../../components/ImageSelector";
 import { useTranslation } from "../../../../i18n/utils";
 
-export default function ReplaceSetter (props) {
+export default function ReplaceSetter(props) {
   const { t } = useTranslation();
-  const { onChange } = props;
+  const {
+    onChange,
+    ...rest
+  } = props;
 
   return (
-    <ImageSelector size="middle" onChange={onChange} title={t('setter.image.replace')} />
+    <ImageSelector size="middle" onChange={onChange} title={t('setter.image.replace')} {...rest} />
   );
 
   // return (

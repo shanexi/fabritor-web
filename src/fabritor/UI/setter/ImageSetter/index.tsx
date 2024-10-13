@@ -1,17 +1,18 @@
+/** @jsxImportSource @emotion/react */
+
 import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Form, Row } from 'antd';
+import { Form } from 'antd';
 import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
-import BorderSetter from './BorderSetter';
 import { getObjectBorderType, getStrokeDashArray } from '../BorderSetter'
-import ClipSetter from './Clip';
 import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
 import FList from "../../../components/FList";
+import { css } from "@emotion/react";
 
 const { Item: FormItem } = Form;
 
@@ -23,6 +24,7 @@ export default function ImageSetter() {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
+  const [hasRef, setHasRef] = useState(false);
 
   const IMAGE_ADVANCE_CONFIG = [
     {
@@ -71,6 +73,14 @@ export default function ImageSetter() {
   }
 
   const handleValuesChange = (values) => {
+    const keys = Object.keys(values);
+    if (!keys?.length) return;
+    for (let key of keys) {
+      if (key === 'ref') {
+        setHasRef(values[key] != null);
+      }
+    }
+
     if (values.img) {
       handleImageReplace(values.img);
     }
@@ -86,6 +96,8 @@ export default function ImageSetter() {
 
   useEffect(() => {
     if (object) {
+      // @ts-expect-error TS2339
+      setHasRef(object.ref != null);
       // @ts-expect-error TS2339
       const border = object.getBorder();
       form.setFieldsValue({
@@ -122,9 +134,19 @@ export default function ImageSetter() {
                        object.set('ref', val);
                      }}/>
         </Form.Item>
-        <FormItem name="img">
-          <ReplaceSetter/>
-        </FormItem>
+        {
+          hasRef ? <Form.Item
+              label={<span css={css`
+                  display: inline-block;
+                  width: 42px;
+              `}/>}
+              name="img">
+              <ReplaceSetter title="Replace placeholder image" />
+            </Form.Item>
+            : <FormItem name="img">
+              <ReplaceSetter/>
+            </FormItem>
+        }
         {/* <Row gutter={8}>
           <Col span={12}>
             <FormItem>
