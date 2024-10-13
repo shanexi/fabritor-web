@@ -37,11 +37,11 @@ const PRESET_FONT_LIST = [
   {
     label: <div style={{
       fontSize: 16,
-      fontFamily: 'Source Sans Pro'
+      fontFamily: 'Open Sans'
     }}><Trans i18nKey="panel.text.add_body_text"/></div>,
     key: 'content',
     config: {
-      fontFamily: 'Source Sans Pro',
+      fontFamily: 'Open Sans',
       fontSize: 75,
       text: () => translate('panel.text.add_body_text'),
     }
@@ -49,16 +49,16 @@ const PRESET_FONT_LIST = [
   {
     label: <div style={{
       fontSize: 26,
-      fontFamily: 'Popings',
+      fontFamily: 'Open Sans',
       color: '#ffffff',
       WebkitTextStroke: '1px rgb(255, 87, 87)'
     }}><Trans i18nKey="panel.text.add_text_border"/></div>,
     key: 'content_border',
     config: {
-      fontFamily: 'Popings',
+      fontFamily: 'Open Sans',
       fontSize: 90,
       text: () => translate('panel.text.add_text_border'),
-      fill: '#ffffff',
+      fill: '#fdf5f5',
       stroke: '#ff5757',
       strokeWidth: 10
     }
@@ -83,16 +83,17 @@ export default function PresetFontPanel(props) {
           onClick={() => {
             handleClick({
               config: {
-                fontFamily: 'Source Sans Pro',
+                fontFamily: 'Open Sans',
                 fontSize: 75,
                 text: 'Text placeholder',
                 width: 600,
                 opacity: 0.5,
+                color: "#6D7175"
               }
             })
             setTimeout(
               () => model.openRefSelect()
-              , 0)
+              , 300)
           }}
           bodyStyle={{
             padding: '12px 30px',

@@ -36,7 +36,7 @@ export default function TextPattern (props) {
         </Col>
       </Row>
       <FormItem name="url">
-        <ImageSelector size="middle" type="default" />
+        <ImageSelector size="middle" type="default" title="Local Image" />
       </FormItem>
     </Form>
   )

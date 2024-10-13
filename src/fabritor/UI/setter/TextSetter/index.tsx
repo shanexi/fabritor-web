@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
-import { Form, Select } from 'antd';
+import { Form, Input, Select } from 'antd';
 import { FONT_PRESET_FAMILY_LIST_GOOGLE_FONT } from "../../../../utils/constants";
 import { GlobalStateContext } from "../../../../context";
 import FontStyleSetter from './FontStyleSetter';
@@ -14,6 +16,7 @@ import MoreConfigWrapper from '../Form/MoreConfigWrapper';
 import TextFx from './TextFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
+import { css } from "@emotion/react";
 
 const { Item: FormItem } = Form;
 
@@ -24,6 +27,8 @@ export default function TextSetter() {
   } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
+  const [hasRef, setHasRef] = useState(false);
+
   const { t } = useTranslation();
 
   const TEXT_ADVANCE_CONFIG = [
@@ -73,6 +78,9 @@ export default function TextSetter() {
     if (!keys?.length) return;
 
     for (let key of keys) {
+      if (key === 'ref') {
+        setHasRef(values[key] != null);
+      }
       if (key === 'fontStyles') {
         handleFontStyles(values[key]);
       } else if (key === 'fontFamily') {
@@ -107,9 +115,14 @@ export default function TextSetter() {
   }
 
   useEffect(() => {
+    // @ts-expect-error TS2339
+    setHasRef(object.ref != null);
+
     form.setFieldsValue({
       // @ts-expect-error TS2339
       ref: object.ref,
+      // @ts-expect-error TS2339
+      text: object.text,
       // @ts-expect-error TS2339
       fontFamily: object.fontFamily,
       // @ts-expect-error TS2339
@@ -157,6 +170,21 @@ export default function TextSetter() {
                        object.set('ref', val);
                      }}/>
         </Form.Item>
+        {
+          hasRef ? <Form.Item
+              label={<span css={css`
+                  display: inline-block;
+                  width: 42px;
+              `}/>}
+              name="text">
+              <Input placeholder='ref placeholder' onChange={e => {
+                form.setFieldValue('text', e.target.value)
+                // @ts-expect-error TS2345
+                object.set('text', e.target.value);
+              }}></Input>
+            </Form.Item>
+            : null
+        }
         <FormItem
           name="fontFamily"
           label={t('setter.text.font_family')}
