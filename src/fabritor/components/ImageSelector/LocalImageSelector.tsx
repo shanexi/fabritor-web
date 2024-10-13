@@ -4,7 +4,7 @@ import LocalFileSelector from '../LocalFileSelector';
 import { useTranslation } from "../../../i18n/utils";
 
 export default function LocalImageSelector (props) {
-  const { onChange, ...rest } = props;
+  const { title, onChange, ...rest } = props;
   const localFileSelectorRef = useRef<any>();
   const { t } = useTranslation();
 
@@ -18,7 +18,7 @@ export default function LocalImageSelector (props) {
       // addSvg?.({ url });
       return;
     }
-    
+
     const reader = new FileReader();
     reader.onload = (revt) => {
       onChange?.(revt.target.result);
@@ -28,8 +28,8 @@ export default function LocalImageSelector (props) {
 
   return (
     <div>
-      <Button type="primary" size="large" onClick={handleClick} {...rest}>
-        {t('panel.image.local')}
+      <Button type="primary" size="large" block onClick={handleClick} {...rest}>
+        {title || t('panel.image.local')}
       </Button>
 
       <LocalFileSelector accept="image/*" ref={localFileSelectorRef} onChange={handleFileChange} />
