@@ -13,6 +13,7 @@ export class ImageCanvasModel {
   }>();
 
   @observable variables: MenuProps["items"] = [];
+  @observable isRefSelectOpen = false
   private isEditorReadyPromiseResolve: ((value: unknown) => void) | undefined;
   private isEditorReadyPromise: Promise<unknown>;
   private editor: Editor;
@@ -102,6 +103,22 @@ export class ImageCanvasModel {
     }
     return keyPath[0]
   }
+
+  @action.bound
+  openRefSelect() {
+    this.isRefSelectOpen = true;
+  }
+
+  @action.bound
+  closeRefSelect() {
+    this.isRefSelectOpen = false;
+  }
+
+  @action.bound
+  toggleRefSelect() {
+    this.isRefSelectOpen = !this.isRefSelectOpen;
+  }
+
 }
 
 // todo: add Test
@@ -130,7 +147,7 @@ function findPathByValue(variables: any, targetValue: string) {
 }
 
 // backup original text, assign ref to text
-export function convertExportedJson(rawJson: any) {
+function convertExportedJson(rawJson: any) {
   const json = JSON.parse(JSON.stringify(rawJson));
   json.objects.forEach((object: any) => {
     if (object.ref) { // Notice object.ref is not same level as o.src
