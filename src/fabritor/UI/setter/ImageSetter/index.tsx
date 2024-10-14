@@ -157,7 +157,7 @@ export default function ImageSetter() {
           </Col>
         </Row> */}
       </Form>
-      <FList
+      {/* <FList
         dataSource={IMAGE_ADVANCE_CONFIG}
         renderItemChildren={(item) => (
           <>
@@ -179,7 +179,7 @@ export default function ImageSetter() {
         title={t('setter.image.filter')}
       >
         <ImageFx/>
-      </MoreConfigWrapper>
+      </MoreConfigWrapper> */}
     </>
   )
 }
