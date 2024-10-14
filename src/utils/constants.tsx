@@ -26,7 +26,7 @@ export const TEXTBOX_DEFAULT_CONFIG = {
   fontSize: 50,
   lineHeight: 1.30,
   textAlign: 'center',
-  fontFamily: 'AlibabaPuHuiTi',
+  fontFamily: 'Roboto',
   // size
   width: 500,
   // 中文处理

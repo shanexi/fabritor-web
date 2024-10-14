@@ -77,7 +77,7 @@ export default function PresetFontPanel(props) {
   return (
     <Flex vertical gap={8} style={{ marginTop: 16 }}>
       <Title>{t('panel.text.presets')}</Title>
-      <Badge.Ribbon text="Ref" color="red">
+      {/* <Badge.Ribbon text="Ref" color="red">
         <Card
           hoverable
           onClick={() => {
@@ -103,7 +103,7 @@ export default function PresetFontPanel(props) {
         >
           Text Placeholder
         </Card>
-      </Badge.Ribbon>
+      </Badge.Ribbon> */}
       {
         PRESET_FONT_LIST.map(item => (
           <Card

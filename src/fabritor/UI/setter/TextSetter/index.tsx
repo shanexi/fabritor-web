@@ -24,7 +24,7 @@ export default function TextSetter() {
   } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
-  const [hasRef, setHasRef] = useState(false);
+  // const [hasRef, setHasRef] = useState(false);
 
   const { t } = useTranslation();
 
@@ -75,9 +75,9 @@ export default function TextSetter() {
     if (!keys?.length) return;
 
     for (let key of keys) {
-      if (key === 'ref') {
-        setHasRef(values[key] != null);
-      }
+      // if (key === 'ref') {
+      //   setHasRef(values[key] != null);
+      // }
       if (key === 'fontStyles') {
         handleFontStyles(values[key]);
       } else if (key === 'fontFamily') {
@@ -112,8 +112,8 @@ export default function TextSetter() {
   }
 
   useEffect(() => {
-    // @ts-expect-error TS2339
-    setHasRef(object.ref != null);
+    // // @ts-expect-error TS2339
+    // setHasRef(object.ref != null);
 
     form.setFieldsValue({
       // @ts-expect-error TS2339
@@ -150,37 +150,36 @@ export default function TextSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <Form.Item
-          name="ref"
-          help={RefHelp}
-          label={<RefLabel/>}
-        >
-          <RefSelect id='ref'
-                     objId={object['id']}
-                     value={form.getFieldValue('ref')}
-                     onChange={(val: string) => {
-                       // Not familiar with ant design form
-                       // explicitly set id/value/onChange
-                       form.setFieldValue('ref', val)
-                       // need to call object.set here other than in handleValuesChange
-                       // @ts-expect-error TS2345
-                       object.set('ref', val);
-                     }}/>
-        </Form.Item>
         {
-          hasRef ? <Form.Item
-              label={<span style={{
-                display: 'inline-block',
-                width: 42,
-              }}/>}
+          // @ts-expect-error TS2339
+          object.ref !== undefined ? <>
+            <Form.Item
+              name="ref"
+              help={RefHelp}
+              label={<RefLabel/>}
+            >
+              <RefSelect id='ref'
+                         objId={object['id']}
+                         value={form.getFieldValue('ref')}
+                         onChange={(val: string) => {
+                           // Not familiar with ant design form
+                           // explicitly set id/value/onChange
+                           form.setFieldValue('ref', val)
+                           // need to call object.set here other than in handleValuesChange
+                           // @ts-expect-error TS2345
+                           object.set('ref', val);
+                         }}/>
+            </Form.Item>
+            <Form.Item
+              label="Placeholder"
               name="text">
-              <Input placeholder='ref placeholder' onChange={e => {
+              <Input.TextArea placeholder='ref placeholder' onChange={e => {
                 form.setFieldValue('text', e.target.value)
                 // @ts-expect-error TS2345
                 object.set('text', e.target.value);
-              }}></Input>
+              }}></Input.TextArea>
             </Form.Item>
-            : null
+          </> : null
         }
         <FormItem
           name="fontFamily"
