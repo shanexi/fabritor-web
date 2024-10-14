@@ -6,11 +6,11 @@ import EmojiPanel from './Emoji';
 import { Trans } from "../../../../i18n/utils";
 
 const APP_LIST = [
-  {
-    title: <Trans i18nKey="panel.app.qrcode" />,
-    key: 'qrcode',
-    icon: <QrcodeOutlined style={{ fontSize: 30 }} />
-  },
+  // {
+  //   title: <Trans i18nKey="panel.app.qrcode" />,
+  //   key: 'qrcode',
+  //   icon: <QrcodeOutlined style={{ fontSize: 30 }} />
+  // },
   {
     title: <Trans i18nKey="panel.app.emoji" />,
     key: 'emoji',
@@ -20,7 +20,7 @@ const APP_LIST = [
 
 export default function AppPanel () {
   const [app, setApp] = useState('');
-  
+
   const handleAppClick = (item) => {
     setApp(item.key);
   }
@@ -32,7 +32,7 @@ export default function AppPanel () {
       <Flex
         wrap="wrap"
         gap={12}
-        justify="space-around"
+        justify="flex-start"
         style={{ padding: '16px 16px 16px 0', marginLeft: -8 }}
       >
         {

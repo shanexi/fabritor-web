@@ -1,15 +1,12 @@
 import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
 import { Form } from 'antd';
-import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
+import { FunctionOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
 import { getObjectBorderType, getStrokeDashArray } from '../BorderSetter'
-import MoreConfigWrapper from '../Form/MoreConfigWrapper';
-import ImageFx from './ImageFx';
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
-import FList from "../../../components/FList";
 
 const { Item: FormItem } = Form;
 
@@ -21,7 +18,7 @@ export default function ImageSetter() {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
-  const [hasRef, setHasRef] = useState(false);
+  // const [hasRef, setHasRef] = useState(false);
 
   const IMAGE_ADVANCE_CONFIG = [
     {
@@ -72,11 +69,11 @@ export default function ImageSetter() {
   const handleValuesChange = (values) => {
     const keys = Object.keys(values);
     if (!keys?.length) return;
-    for (let key of keys) {
-      if (key === 'ref') {
-        setHasRef(values[key] != null);
-      }
-    }
+    // for (let key of keys) {
+    //   if (key === 'ref') {
+    //     setHasRef(values[key] != null);
+    //   }
+    // }
 
     if (values.img) {
       handleImageReplace(values.img);
@@ -93,8 +90,7 @@ export default function ImageSetter() {
 
   useEffect(() => {
     if (object) {
-      // @ts-expect-error TS2339
-      setHasRef(object.ref != null);
+      // setHasRef(object.ref != null);
       // @ts-expect-error TS2339
       const border = object.getBorder();
       form.setFieldsValue({
@@ -117,33 +113,26 @@ export default function ImageSetter() {
         onValuesChange={handleValuesChange}
         colon={false}
       >
-        <Form.Item
-          name="ref"
-          help={RefHelp}
-          label={<RefLabel/>}
-        >
-          <RefSelect id='ref'
-                     objId={object['id']}
-                     value={form.getFieldValue('ref')}
-                     onChange={(val: string) => {
-                       form.setFieldValue('ref', val)
-                       // @ts-expect-error TS2345
-                       object.set('ref', val);
-                     }}/>
-        </Form.Item>
         {
-          hasRef ? <Form.Item
-              label={<span style={{
-                display: 'inline-block',
-                width: 42,
-              }}/>}
-              name="img">
-              <ReplaceSetter title="Replace placeholder image"/>
-            </Form.Item>
-            : <FormItem name="img">
-              <ReplaceSetter/>
-            </FormItem>
+          // @ts-expect-error TS2339
+          object.hasRef ? <Form.Item
+            name="ref"
+            help={RefHelp}
+            label={<RefLabel/>}
+          >
+            <RefSelect id='ref'
+                       objId={object['id']}
+                       value={form.getFieldValue('ref')}
+                       onChange={(val: string) => {
+                         form.setFieldValue('ref', val)
+                         // @ts-expect-error TS2345
+                         object.set('ref', val);
+                       }}/>
+          </Form.Item> : null
         }
+        <FormItem name="img">
+          <ReplaceSetter/>
+        </FormItem>
         {/* <Row gutter={8}>
           <Col span={12}>
             <FormItem>

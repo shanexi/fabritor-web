@@ -45,13 +45,19 @@ export const createClipRect = (object, options = {}) => {
 }
 
 export const createImage = async (options) => {
-  const { imageSource, canvas, ...rest } = options || {};
+  const {
+    imageSource,
+    canvas,
+    ...rest
+  } = options || {};
 
   let img!: fabric.Image;
   try {
     img = await loadImage(imageSource);
-  } catch(e) { console.log(e); }
-  
+  } catch (e) {
+    console.log(e);
+  }
+
   // @ts-expect-error TS7030
   if (!img) return;
 
@@ -70,19 +76,26 @@ export const createImage = async (options) => {
 }
 
 export const createFImage = async (options) => {
-  const { imageSource, canvas } = options || {};
+  const {
+    imageSource,
+    canvas,
+    hasRef
+  } = options || {};
 
   let img!: fabric.Image;
   try {
     img = await loadImage(imageSource);
-  } catch(e) { console.log(e); }
-  
+  } catch (e) {
+    console.log(e);
+  }
+
   if (!img) return;
 
   // @ts-expect-error TS2551
   const fimg = new fabric.FImage({
     image: img,
-    id: uuid()
+    id: uuid(),
+    hasRef,
   });
 
   canvas.viewportCenterObject(fimg);
