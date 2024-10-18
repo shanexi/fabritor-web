@@ -15,6 +15,9 @@ export const createFTextClass = () => {
 
     paintFirst: 'stroke',
 
+    // https://stackoverflow.com/questions/42095045/fabric-js-itext-font-fuzzy-according-to-position
+    objectCaching: false,
+
     initDimensions: function() {
       if (this.__skipDimension) {
         return;
