@@ -186,6 +186,7 @@ export default function TextSetter() {
           label={t('setter.text.font_family')}
         >
           <Select
+            showSearch
             options={FONT_PRESET_FAMILY_LIST_GOOGLE_FONT}
             onDropdownVisibleChange={open => {
               if (open) {
