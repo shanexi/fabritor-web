@@ -98,7 +98,7 @@ export class ImageCanvasModel {
   processWorkflowRunnerOutput(keyPath: string[]) {
     keyPath = keyPath.slice(0)
     // special process workflow runner output
-    if (keyPath.indexOf(WORKFLOW_RUNNER) > -1) {
+    if (keyPath.some(v => v.indexOf(WORKFLOW_RUNNER) > -1)) {
       return keyPath[0].replace('}}', '[0]}}');
     }
     return keyPath[0]
@@ -156,6 +156,9 @@ function convertExportedJson(rawJson: any) {
           if (o.type === 'image') {
             o._src = o.src;
             o.src = object.ref; // Notice object.ref is not same level as o.src
+            // Prevent been parsed in log file
+            object.ref = object.ref.replace('{{', '[[')
+            object.ref = object.ref.replace('}}', ']]')
           }
         })
       }
@@ -163,6 +166,9 @@ function convertExportedJson(rawJson: any) {
       if (object.type === 'f-text') {
         object._text = object.text;
         object.text = object.ref
+        // Prevent been parsed in log file
+        object.ref = object.ref.replace('{{', '[[')
+        object.ref = object.ref.replace('}}', ']]')
       }
     }
   })
