@@ -62,7 +62,9 @@ export const createTextbox = async (options) => {
     ...rest,
     fontFamily,
     pathAlign: 'center',
-    id: uuid()
+    id: uuid(),
+    objectCaching: false,
+    splitByGrapheme: false,
   });
 
   textBox.on('editing:entered', () => {

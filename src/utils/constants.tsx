@@ -30,7 +30,7 @@ export const TEXTBOX_DEFAULT_CONFIG = {
   // size
   width: 500,
   // 中文处理
-  splitByGrapheme: true
+  splitByGrapheme: false
 }
 
 export const FONT_PRESET_FAMILY_LIST = [
