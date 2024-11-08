@@ -18,6 +18,11 @@ export const createFTextClass = () => {
     // https://stackoverflow.com/questions/42095045/fabric-js-itext-font-fuzzy-according-to-position
     objectCaching: false,
 
+    // https://github.com/fabricjs/fabric.js/issues/8792
+    needsItsOwnCache: function () {
+      return false
+    },
+
     initDimensions: function() {
       if (this.__skipDimension) {
         return;
