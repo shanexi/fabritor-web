@@ -168,7 +168,17 @@ export const FABRITOR_CUSTOM_PROPS = [
   'oldArrowInfo',
   'ref',
   'hasRef',
+  'fontScale',
 ];
+
+export const CUSTOM_FONTS = [
+  'Caveat-Regular',
+  'KronaOne-Regular',
+  'NotoSansTC-Regular',
+  'Oswald-Bold',
+  'Oswald-Regular',
+  'Geizer-2'
+]
 
 export const COMPLETE_GOOGLE_FONTS = [
   'Roboto',
@@ -274,7 +284,7 @@ export const COMPLETE_GOOGLE_FONTS = [
   'Source Code Pro',
 ]
 
-export const FONT_PRESET_FAMILY_LIST_GOOGLE_FONT = COMPLETE_GOOGLE_FONTS.map(f => (
+export const FONT_PRESET_FAMILY_LIST_GOOGLE_FONT = CUSTOM_FONTS.concat(COMPLETE_GOOGLE_FONTS).map(f => (
   {
     label: <span style={{
       fontFamily: f,
