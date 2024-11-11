@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { fabric } from 'fabric';
-import { Form, Input, Select } from 'antd';
+import { Form, Input, Select, Switch } from 'antd';
 import { FONT_PRESET_FAMILY_LIST_GOOGLE_FONT } from "../../../../utils/constants";
 import { GlobalStateContext } from "../../../../context";
 import FontStyleSetter from './FontStyleSetter';
@@ -24,6 +24,7 @@ export default function TextSetter() {
   } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
+  const [fontScale, setFontScale] = useState(false);
   // const [hasRef, setHasRef] = useState(false);
 
   const { t } = useTranslation();
@@ -78,6 +79,12 @@ export default function TextSetter() {
       // if (key === 'ref') {
       //   setHasRef(values[key] != null);
       // }
+      if (key === 'fontScale') {
+        // @ts-expect-error TS2345
+        object.set(key, values[key]);
+        form.setFieldValue('maxFontSize', form.getFieldValue('fontSize'))
+        setFontScale(values[key]);
+      }
       if (key === 'fontStyles') {
         handleFontStyles(values[key]);
       } else if (key === 'fontFamily') {
@@ -114,7 +121,8 @@ export default function TextSetter() {
   useEffect(() => {
     // // @ts-expect-error TS2339
     // setHasRef(object.ref != null);
-
+    // @ts-expect-error TS2339
+    setFontScale(object.fontScale);
     form.setFieldsValue({
       // @ts-expect-error TS2339
       ref: object.ref,
@@ -124,6 +132,8 @@ export default function TextSetter() {
       fontFamily: object.fontFamily,
       // @ts-expect-error TS2339
       fontSize: object.fontSize,
+      // @ts-expect-error TS2339
+      fontScale: object.fontScale,
       fill: transformFill2Colors(object.fill),
       // @ts-expect-error TS2339
       textAlign: object.textAlign,
@@ -139,7 +149,7 @@ export default function TextSetter() {
         // @ts-expect-error TS2339
         underline: object.underline,
         // @ts-expect-error TS2339
-        linethrough: object.linethrough
+        linethrough: object.linethrough,
       }
     });
   }, [object]);
@@ -195,13 +205,35 @@ export default function TextSetter() {
             }}
           />
         </FormItem>
+        <FormItem label={'Font scale'} name="fontScale" valuePropName="checked">
+          <Switch id='fontScale'
+                  checked={form.getFieldValue('fontScale')}
+                  onChange={(checked: boolean) => {
+                    form.setFieldValue('fontScale', checked)
+                    // @ts-expect-error TS2345
+                    object.set('fontScale', checked);
+                  }}/>
+        </FormItem>
+        {/* {
+          fontScale ? <FormItem
+            name="maxFontSize"
+            label={'Max font size'}>
+            <SliderInputNumber max={400} onChangeComplete={() => {
+              editor.fireCustomModifiedEvent()
+            }}
+            />
+          </FormItem> : null
+        } */}
         <FormItem
           name="fontSize"
           label={t('setter.text.font_size')}
         >
           <SliderInputNumber max={400} onChangeComplete={() => {
             editor.fireCustomModifiedEvent()
-          }}/>
+          }}
+                             inputProps={{ disabled: fontScale }}
+                             sliderProps={{ disabled: fontScale }}
+          />
         </FormItem>
         <FormItem
           name="fill"

@@ -168,6 +168,7 @@ export const FABRITOR_CUSTOM_PROPS = [
   'oldArrowInfo',
   'ref',
   'hasRef',
+  'fontScale',
 ];
 
 export const CUSTOM_FONTS = [

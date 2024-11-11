@@ -1,10 +1,11 @@
 import { fabric } from 'fabric';
+
 const clone = fabric.util.object.clone;
 
 const additionalProps =
-('fontFamily fontWeight fontSize text underline overline linethrough' +
-' textAlign fontStyle lineHeight textBackgroundColor charSpacing styles' +
-' direction path pathStartOffset pathSide pathAlign minWidth splitByGrapheme').split(' ');
+  ('fontFamily fontWeight fontSize text underline overline linethrough' +
+    ' textAlign fontStyle lineHeight textBackgroundColor charSpacing styles' +
+    ' direction path pathStartOffset pathSide pathAlign minWidth splitByGrapheme').split(' ');
 
 export const createFTextClass = () => {
   // @ts-ignore custom f-text
@@ -23,13 +24,27 @@ export const createFTextClass = () => {
       return false
     },
 
-    initDimensions: function() {
+    initDimensions: function () {
       if (this.__skipDimension) {
         return;
       }
       this.isEditing && this.initDelayedCursor();
       this.clearContextTop();
       this._clearCache();
+
+      if (this.fontScale) {
+        const width = this._measureWord(this.text, 0, 0);
+        if (width !== 0) {
+          const fontSize = this.fontSize * this.width / (width + 1);
+          if (width > this.width || fontSize < this.maxFontSize) {
+            const fontSize = this.fontSize * this.width / (width + 1);
+            this._set('fontSize', fontSize);
+          }
+        } else {
+          this._set('fontSize', this.maxFontSize);
+        }
+      }
+
       // clear dynamicMinWidth as it will be different after we re-wrap line
       this.dynamicMinWidth = 0;
       // wrap lines
@@ -52,7 +67,7 @@ export const createFTextClass = () => {
       this.saveState({ propertySet: '_dimensionAffectingProps' });
     },
 
-    toObject: function(propertiesToInclude) {
+    toObject: function (propertiesToInclude) {
       const allProperties = additionalProps.concat(propertiesToInclude);
       const obj = this.callSuper('toObject', allProperties);
       // @ts-expect-error TS2339
@@ -65,19 +80,20 @@ export const createFTextClass = () => {
   });
 
   // @ts-expect-error TS2551
-  fabric.FText.fromObject = function(object, callback) {
-    const objectCopy = clone(object), path = object.path;
+  fabric.FText.fromObject = function (object, callback) {
+    const objectCopy = clone(object),
+      path = object.path;
     delete objectCopy.path;
-    return fabric.Object._fromObject('FText', objectCopy, function(textInstance) {
+    return fabric.Object._fromObject('FText', objectCopy, function (textInstance) {
       // @ts-expect-error TS2339
       textInstance.styles = fabric.util.stylesFromArray(object.styles, object.text);
+      textInstance.set('maxFontSize', object.fontSize);
       if (path) {
-        fabric.Object._fromObject('Path', path, function(pathInstance) {
+        fabric.Object._fromObject('Path', path, function (pathInstance) {
           textInstance.set('path', pathInstance);
           callback(textInstance);
         }, 'path');
-      }
-      else {
+      } else {
         callback(textInstance);
       }
     }, 'text');
