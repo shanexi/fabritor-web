@@ -77,7 +77,7 @@ export default function ColorSetter (props) {
         }
         trigger="click"
       >
-        <div 
+        <div
           className="fabritor-toolbar-item"
           style={{
             borderRadius: 4,
@@ -92,7 +92,7 @@ export default function ColorSetter (props) {
         <linearGradient id="colorsetter-icon-gradient" x2="1" y2="1">
           {
             value?.gradient?.colorStops.map(stop => (
-              <stop offset={`${stop.offset * 100}%`} stop-color={stop.color} />
+              <stop key={`${stop.color}-${stop.offset}`} offset={`${stop.offset * 100}%`} stopColor={stop.color} />
             ))
           }
         </linearGradient>
