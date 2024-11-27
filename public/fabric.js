@@ -21416,7 +21416,6 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     },
 
     _renderFill: function(ctx) {
-      console.log('>>> _renderFill')
       var elementToDraw = this._element;
       if (!elementToDraw) {
         return;
