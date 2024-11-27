@@ -137,11 +137,11 @@ export default function PositionSetter () {
                   <PxInputNumber min={1} />
                 </FormItem>
               </Col>
-              <Col span={8}>
+              {/* <Col span={8}>
                 <FormItem label={t('setter.common.lock_ratio')} name="lockRatio" valuePropName="checked">
                   <Switch disabled />
                 </FormItem>
-              </Col>
+              </Col> */}
             </Row>
             <Row gutter={8}>
               <Col span={8}>

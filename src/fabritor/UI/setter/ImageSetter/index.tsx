@@ -1,12 +1,14 @@
 // import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
-import { Form } from 'antd';
+import { Col, Form, Row } from 'antd';
 import { FunctionOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
 import { getObjectBorderType, getStrokeDashArray } from '../BorderSetter'
 import { useTranslation } from "../../../../i18n/utils";
 import { RefHelp, RefLabel, RefSelect } from "../ShellAgent/RefSelect";
+import ClipSetter from "./Clip";
+import BorderSetter from "./BorderSetter";
 
 const { Item: FormItem } = Form;
 
@@ -133,7 +135,7 @@ export default function ImageSetter() {
         <FormItem name="img">
           <ReplaceSetter/>
         </FormItem>
-        {/* <Row gutter={8}>
+        <Row gutter={8}>
           <Col span={12}>
             <FormItem>
               <ClipSetter object={object}/>
@@ -144,7 +146,7 @@ export default function ImageSetter() {
               <BorderSetter/>
             </FormItem>
           </Col>
-        </Row> */}
+        </Row>
       </Form>
       {/* <FList
         dataSource={IMAGE_ADVANCE_CONFIG}
