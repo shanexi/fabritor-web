@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { useContext, useEffect, useState } from 'react';
 import PathSetterForm from './PathSetterForm';
 import { GlobalStateContext } from "../../../../context";

@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 
 const degree2Radian = (d) => {
   return Math.PI * d / 180;

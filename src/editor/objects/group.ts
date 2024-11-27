@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { uuid } from "../../utils";
 
 export const createGroup = (options) => {

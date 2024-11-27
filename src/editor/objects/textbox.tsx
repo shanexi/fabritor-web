@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { TEXTBOX_DEFAULT_CONFIG } from "../../utils/constants";
 import { uuid, loadFont } from "../../utils";
 import { translate } from "../../i18n/utils";

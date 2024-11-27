@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { Editor } from "../editor";
 export interface IGlobalStateContext {
   object?: fabric.Object | null | undefined;

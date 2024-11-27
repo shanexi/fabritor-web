@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import AppSubPanel from './AppSubPanel';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';

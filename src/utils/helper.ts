@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { FABRITOR_CUSTOM_PROPS } from './constants';
 import { createTextbox } from "../editor/objects/textbox";
 import { getSystemClipboard } from './index';

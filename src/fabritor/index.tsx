@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { Layout, Spin } from 'antd';
 import Panel from './UI/panel';
 import Setter from './UI/setter';

@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { message } from 'antd';
 import { calcCanvasZoomLevel, handleFLinePointsWhenMoving } from "../utils/helper";
 import initControl, { handleMouseOutCorner, handleMouseOverCorner } from './controller';

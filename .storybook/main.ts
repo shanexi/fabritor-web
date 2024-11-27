@@ -35,6 +35,15 @@ const config: StorybookConfig = {
         },
       ]
     })
+    config.externals = {
+      // @ts-ignore
+      ...config.externals,
+      fabric: 'fabric'
+    }
+    // // @ts-ignore
+    // config.plugins.push(new webpack.ProvidePlugin({
+    //   fabric: require.resolve('fabric'),
+    // }));
     return config;
   },
   swc: () => ({

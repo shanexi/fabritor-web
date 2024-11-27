@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 
 export const createFImageClass = () => {
   // @ts-ignore custom image

@@ -1,7 +1,7 @@
 import { Tooltip, Flex, Button } from 'antd';
 import Title from "../../../components/Title";
 import { useContext, useEffect, useState } from 'react';
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { DRAW_MODE_CURSOR, DRAG_ICON } from "../../../../assets/icon";
 import BrushList from './brush-list';
 import { GlobalStateContext } from "../../../../context";

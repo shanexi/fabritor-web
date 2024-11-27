@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { useEffect, useContext } from 'react';
 import { GlobalStateContext } from "../../../../../context";
 import { Form } from 'antd';

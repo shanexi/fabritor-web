@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
 import { Form } from 'antd';
 import { FunctionOutlined } from '@ant-design/icons';

@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { changeHeight } from "../../utils/helper";
 
 // @ts-ignore fabric controlsUtils

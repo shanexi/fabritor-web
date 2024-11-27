@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { Form } from 'antd';
 import { GlobalStateContext } from "../../../../context";
 import ColorSetter from '../ColorSetter';

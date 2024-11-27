@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { fabric } from 'fabric';
+// import { fabric } from 'fabric';
 import { Form, Input, Select, Switch } from 'antd';
 import { FONT_PRESET_FAMILY_LIST_GOOGLE_FONT } from "../../../../utils/constants";
 import { GlobalStateContext } from "../../../../context";
