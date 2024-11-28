@@ -12,6 +12,7 @@ export const createFImageClass = () => {
         originY: 'center'
       });
       this.img = image;
+      this.img.parent = this;
       this.borderRect = this._createBorderRect(imageBorder);
       this.img.clipPath = this._createClipPath();
       this.callSuper('initialize', [this.img, this.borderRect], {
