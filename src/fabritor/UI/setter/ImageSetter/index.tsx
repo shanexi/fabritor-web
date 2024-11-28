@@ -108,6 +108,8 @@ export default function ImageSetter() {
         opacity: object.opacity,
         // @ts-expect-error TS2339
         ref: object.ref,
+        // @ts-expect-error
+        objectFit: object.objectFit
       });
     }
   }, [object]);
@@ -159,6 +161,7 @@ export default function ImageSetter() {
         >
           <Radio.Group defaultValue="fill">
             <Radio.Button value="fill">Fill</Radio.Button>
+            {/* <Radio.Button value="contain">Contain</Radio.Button> */}
             <Radio.Button value="cover">Cover</Radio.Button>
           </Radio.Group>
         </FormItem>
