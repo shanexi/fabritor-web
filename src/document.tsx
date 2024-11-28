@@ -19,6 +19,7 @@ export default function Document() {
       <body>
         <Main />
         <Scripts />
+        <script src="fabric.js" />
       </body>
     </html>
   );
