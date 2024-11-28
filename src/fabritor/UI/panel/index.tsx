@@ -40,7 +40,7 @@ const OBJECT_TYPES = [
     value: 'image',
     icon: <PictureOutlined style={iconStyle} />
   },
-  {
+  /* {
     label: <Trans i18nKey="panel.material.title" />,
     value: 'shape',
     icon: <BorderOutlined style={iconStyle} />
@@ -54,7 +54,7 @@ const OBJECT_TYPES = [
     label: <Trans i18nKey="panel.app.title" />,
     value: 'app',
     icon: <AppstoreOutlined style={iconStyle} />
-  }
+  } */
 ];
 
 export default function Panel () {
@@ -127,7 +127,7 @@ export default function Panel () {
           icon={<GithubFilled />}
           href="https://github.com/sleepy-zone/fabritor-web"
           target="_blank"
-        /> 
+        />
         <LocalesSwitch />
       </FloatButton.Group> */}
     </Sider>
