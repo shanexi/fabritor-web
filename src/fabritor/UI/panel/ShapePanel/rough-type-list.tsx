@@ -1,3 +1,4 @@
+/*
 import roughRectIcon from "../../../../assets/rough/rect.png";
 import roughLineIcon from "../../../../assets/rough/line.png";
 import roughCircleIcon from "../../../../assets/rough/circle.png";
@@ -67,4 +68,4 @@ export default [
       ...DEFAULT_ROUGH_CONFIG
     }
   }
-]
+]*/

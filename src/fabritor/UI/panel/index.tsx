@@ -70,15 +70,15 @@ export default function Panel () {
     if (value === 'image') {
       return <ImagePanel />;
     }
-    if (value === 'shape') {
-      return <ShapePanel />;
-    }
-    if (value === 'paint') {
-      return <PaintPanel />;
-    }
-    if (value === 'app') {
-      return <AppPanel />;
-    }
+    // if (value === 'shape') {
+    //   return <ShapePanel />;
+    // }
+    // if (value === 'paint') {
+    //   return <PaintPanel />;
+    // }
+    // if (value === 'app') {
+    //   return <AppPanel />;
+    // }
     return null;
   }
 

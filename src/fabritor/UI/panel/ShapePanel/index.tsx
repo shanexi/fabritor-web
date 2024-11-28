@@ -2,7 +2,7 @@ import { Flex, Tag } from 'antd';
 import Title from "../../../components/Title";
 import LineTypeList from './line-type-list';
 import ShapeTypeList from './shape-type-list';
-import RoughTypeList from './rough-type-list';
+// import RoughTypeList from './rough-type-list';
 import { drawArrowLine, drawLine, drawTriArrowLine } from "../../../../editor/objects/line";
 import createRect from "../../../../editor/objects/rect";
 import createShape from "../../../../editor/objects/shape";
@@ -119,7 +119,7 @@ export default function ShapePanel () {
           {/* <Tag color='#f50' style={{ position: 'absolute', right: -48, top: -5, padding: '0 4px' }}>beta</Tag> */}
         </div>
       </Title>
-      <Flex gap={10} wrap="wrap" justify="space-around">
+      {/* <Flex gap={10} wrap="wrap" justify="space-around">
         {
           RoughTypeList.map(item => (
             <div
@@ -133,7 +133,7 @@ export default function ShapePanel () {
             </div>
           ))
         }
-      </Flex>
+      </Flex> */}
     </div>
   )
 }
