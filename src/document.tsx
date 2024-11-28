@@ -15,11 +15,11 @@ export default function Document() {
         <Meta />
         <Title />
         <Links />
+        <script src="fabric.js" />
       </head>
       <body>
         <Main />
         <Scripts />
-        <script src="fabric.js" />
       </body>
     </html>
   );
