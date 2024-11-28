@@ -21435,7 +21435,11 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
           maxDestW = min(w, elWidth / scaleX - cropX),
           maxDestH = min(h, elHeight / scaleY - cropY);
 
-      elementToDraw && ctx.drawImage(elementToDraw, sX, sY, sW, sH, x, y, maxDestW, maxDestH);
+      var ph = this.parent.getScaledHeight();
+      var pw = this.parent.getScaledWidth();
+      var r = 1 / (pw / ph);
+      elementToDraw && ctx.drawImage(elementToDraw, sX, sY, sW, sH, - maxDestW * r / 2, y, maxDestW * r, maxDestH);
+      // elementToDraw && ctx.drawImage(elementToDraw, sX, sY, sW, sH, x, y, maxDestW, maxDestH);
     },
 
     /**

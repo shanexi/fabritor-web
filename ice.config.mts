@@ -12,4 +12,7 @@ export default defineConfig(() => ({
     onDemand: true,
     format: 'esm',
   },
+  externals: {
+    fabric: 'fabric'
+  },
 }));
