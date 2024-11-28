@@ -169,6 +169,7 @@ export const FABRITOR_CUSTOM_PROPS = [
   'ref',
   'hasRef',
   'fontScale',
+  'objectFit'
 ];
 
 export const CUSTOM_FONTS = [

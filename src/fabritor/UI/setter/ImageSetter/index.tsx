@@ -1,6 +1,6 @@
 // import { fabric } from 'fabric';
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Form, Row } from 'antd';
+import { Col, Divider, Form, Radio, Row } from 'antd';
 import { FunctionOutlined } from '@ant-design/icons';
 import ReplaceSetter from './ReplaceSetter';
 import { GlobalStateContext } from "../../../../context";
@@ -24,7 +24,7 @@ export default function ImageSetter() {
 
   const IMAGE_ADVANCE_CONFIG = [
     {
-      icon: <FunctionOutlined style={{ fontSize: 22 }}/>,
+      icon: <FunctionOutlined style={{ fontSize: 22 }} />,
       label: t('setter.image.filter'),
       key: 'fx',
       onClick: () => {
@@ -88,6 +88,10 @@ export default function ImageSetter() {
     if (values.border) {
       handleBorder(values.border);
     }
+    if (values.objectFit) {
+      // @ts-expect-error
+      object.set('objectFit', values.objectFit);
+    }
   }
 
   useEffect(() => {
@@ -120,33 +124,44 @@ export default function ImageSetter() {
           object.hasRef ? <Form.Item
             name="ref"
             help={RefHelp}
-            label={<RefLabel/>}
+            label={<RefLabel />}
           >
             <RefSelect id='ref'
-                       objId={object['id']}
-                       value={form.getFieldValue('ref')}
-                       onChange={(val: string) => {
-                         form.setFieldValue('ref', val)
-                         // @ts-expect-error TS2345
-                         object.set('ref', val);
-                       }}/>
+              objId={object['id']}
+              value={form.getFieldValue('ref')}
+              onChange={(val: string) => {
+                form.setFieldValue('ref', val)
+                // @ts-expect-error TS2345
+                object.set('ref', val);
+              }} />
           </Form.Item> : null
         }
         <FormItem name="img">
-          <ReplaceSetter/>
+          <ReplaceSetter />
         </FormItem>
         <Row gutter={8}>
           <Col span={12}>
             <FormItem>
-              <ClipSetter object={object}/>
+              <ClipSetter object={object} />
             </FormItem>
           </Col>
           <Col span={12}>
             <FormItem name="border">
-              <BorderSetter/>
+              <BorderSetter />
             </FormItem>
           </Col>
         </Row>
+        <Divider style={{ margin: '16px 0' }} />
+        <span style={{ fontWeight: 'bold', display: 'inline-block', marginBottom: 16 }}>Object Fit</span>
+        <FormItem
+          name="objectFit"
+          label=""
+        >
+          <Radio.Group defaultValue="fill">
+            <Radio.Button value="fill">Fill</Radio.Button>
+            <Radio.Button value="cover">Cover</Radio.Button>
+          </Radio.Group>
+        </FormItem>
       </Form>
       {/* <FList
         dataSource={IMAGE_ADVANCE_CONFIG}
