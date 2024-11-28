@@ -36,6 +36,9 @@ try {
         },
         "./assets/react-colors-beauty.css": {
             "default": "./assets/react-colors-beauty.css"
+        },
+        "./fabric.js": {
+            "default": "./public/fabric.js"
         }
     }
 
