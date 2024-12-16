@@ -127,6 +127,9 @@ export const createFImageClass = () => {
   fabric.FImage.fromObject = (object, callback) => {
     const { objects, ...options } = object;
     const imgJson = {...objects[0]};
+    if(imgJson._src) {
+      imgJson.src = imgJson._src;
+    }
     // @ts-expect-error TS2339
     fabric.Image.fromObject(imgJson, (img) => {
       // @ts-expect-error TS2551
