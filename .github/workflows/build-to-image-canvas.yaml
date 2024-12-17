@@ -44,7 +44,7 @@ jobs:
           target-directory: build
           destination-github-username: "myshell-ai"
           destination-repository-name: "ImageCanvas"
-          target-branch: main
+          target-branch: beta
           create-target-branch-if-needed: false
           user-name: ${{ env.COMMIT_AUTHOR_NAME }}
           user-email: ${{ env.COMMIT_AUTHOR_EMAIL }}
