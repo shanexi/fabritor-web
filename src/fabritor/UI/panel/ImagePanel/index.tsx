@@ -7,6 +7,7 @@ import { Button } from "antd";
 import { ImageCanvasModel } from "../../../image-canvas.model";
 import { useInjection } from "inversify-react";
 import { Box } from "react-system";
+import LocalImagePanel from '../../../components/LocalFileSelector';
 
 export default function ImagePanel() {
   const model = useInjection<ImageCanvasModel>('ImageCanvasModel')
@@ -25,26 +26,21 @@ export default function ImagePanel() {
       canvas: editor.canvas,
       hasRef: true
     });
+    setTimeout(
+      () => model.openRefSelect()
+      , 300)
   }
 
   return (
     <div className="fabritor-panel-wrapper">
       <Box mb={2}>
-        <ImageSelector onChange={addImage}/>
+        <ImageSelector onChange={addImage} />
       </Box>
 
-      <Button
-        size="large" block
-        type="primary"
-        onClick={() => {
-          addRefImage?.(IMAGE_PLACEHOLDER)
-          setTimeout(
-            () => model.openRefSelect()
-            , 300)
-        }}
-      >
-        Image Ref Box
-      </Button>
+      <ImageSelector title="Image Ref Box" onChange={
+        addRefImage
+      } />
+
       {/* <PresetImagePanel onChange={addImage}/> */}
     </div>
   )
