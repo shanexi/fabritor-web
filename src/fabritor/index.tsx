@@ -39,6 +39,19 @@ export function ImageCanvas() {
   const [roughSvg, setRoughSvg] = useState<any>();
   const [activeObject, setActiveObject] = useState<fabric.Object | null | undefined>(null);
   const [isReady, setReady] = useState(false);
+
+  // 增加一个变量，当 isReady 为 true，延迟 1000 ms 设置这个变量为 true 当 isReady 为 false，立即 false
+  const [isReadyDelay, setIsReadyDelay] = useState(false);
+  useEffect(() => {
+    if (isReady) {
+      setTimeout(() => {
+        setIsReadyDelay(true);
+      }, 1000);
+    } else {
+      setIsReadyDelay(false);
+    }
+  }, [isReady]);
+  
   const contextMenuRef = useRef<any>(null);
 
   const clickHandler = (opt) => {
@@ -164,6 +177,7 @@ export function ImageCanvas() {
         roughSvg
       }}
     >
+      <div className="fabritor-is-ready-delay" data-is-ready-delay={isReadyDelay} style={{display: 'none'}}></div>
       <Layout style={{
         height: '100%',
         overflow: 'hidden'
